@@ -10,11 +10,27 @@ btnClose.onclick = () => {
 
 let cta = document.querySelectorAll(".nav__cta");
 
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.getAttribute("id");
+      const menuLink = document.querySelector(`.hero__list a[href="#${id}"]`);
+      if (entry.isIntersecting) {
+        let current = document.querySelector(".active");
+        current.classList.remove("active");
+        menuLink.classList.add("active");
+      }
+    });
+  },
+  { rootMargin: "-50% 0px" }
+);
+
 for (let i = 0; i < cta.length; i++) {
-  cta[i].onclick = (event) => {
-    let current = document.querySelector(".active");
-    current.classList.remove("active");
-    cta[i].classList.add("active");
-    menu.classList.remove("show--menu");
-  };
+  const hash = cta[i].getAttribute("href");
+  const section = document.querySelector(hash);
+  if (section) {
+    observer.observe(section);
+  }
 }
+

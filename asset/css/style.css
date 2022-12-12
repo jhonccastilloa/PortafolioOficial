@@ -100,9 +100,11 @@ img {
     left: 0;
     width: 100%;
     padding: 2rem 1rem 1rem;
-    background-color: var(--body-color);
+    background-color: hsl(246, 16%, 12%);
     transition: 0.5s;
     z-index: var(--z-fixed);
+    border-bottom: 2px solid #00bcd4;
+    border-radius: 0 0 22px 22px;
   }
   .hero__main-img-web {
     display: none;
@@ -123,13 +125,16 @@ img {
 }
 
 .nav__cta {
-  color: var(--primary-color);
+  color: var(--icons-color);
 }
 .nav__cta:hover {
-  color: var(--icons-color);
+  color: var(--primary-color);
+  border-bottom: 1.5px solid #00bcd4;
 }
 .active {
-  color: var(--icons-color);
+  color: var(--primary-color);
+  border-bottom: 1.5px solid #00bcd4;
+
 }
 .hero__img {
   width: 100%;
@@ -146,7 +151,7 @@ img {
   margin: 0 auto;
 }
 .bx {
-  color: var(--icons-color);
+  color: white;
   font-size: 24px;
 }
 .hero__main-img {
@@ -215,11 +220,14 @@ img {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  transition: transform 500ms ease;
+  transition: transform 500ms ease,color 500ms ease;
+  color: var(--paragraph-color);
 }
 .hero__main-icons i {
   font-size: 14px;
   margin-top: 4px;
+  color: var(--paragraph-color);
+
 }
 .hero__main-icons:hover{
   transform: scale(1.1);
@@ -566,6 +574,9 @@ transition: filter 0.5s ease;
 }
 
 @media (min-width: 768px) {
+    .hero__main-vector{
+     display:none;
+    }
   .section__rates-container{
     justify-content: center;
     gap: 45px;
