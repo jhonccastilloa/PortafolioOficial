@@ -93,6 +93,9 @@ img {
 .hero__main {
   margin-top: 30px;
 }
+.img__codewars{
+  color: #b1b9bf;
+}
 @media (max-width: 768px) {
   .hero__menu {
     position: fixed;
@@ -693,4 +696,8 @@ transition: filter 0.5s ease;
     flex-direction: row;
     justify-content: space-evenly;
   }
+}
+
+.hero__main-icons--p{
+  padding: 3px;
 }

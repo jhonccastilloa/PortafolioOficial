@@ -23,7 +23,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { rootMargin: "-50% 0px" }
+  { rootMargin: "-35% 0px -65% 0px" }
 );
 
 for (let i = 0; i < cta.length; i++) {
