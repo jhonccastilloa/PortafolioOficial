@@ -106,7 +106,7 @@ img {
     background-color: hsl(246, 16%, 12%);
     transition: 0.5s;
     z-index: var(--z-fixed);
-    border-bottom: 2px solid #00bcd4;
+    border-bottom: 2px solid var(--primary-color);
     border-radius: 0 0 22px 22px;
   }
   .hero__main-img-web {
@@ -128,15 +128,15 @@ img {
 }
 
 .nav__cta {
-  color: var(--icons-color);
+  color: var(--paragraph-color);
 }
 .nav__cta:hover {
   color: var(--primary-color);
-  border-bottom: 1.5px solid #00bcd4;
+  border-bottom: 1.5px solid var(--primary-color);
 }
 .active {
   color: var(--primary-color);
-  border-bottom: 1.5px solid #00bcd4;
+  border-bottom: 1.5px solid var(--primary-color);
 }
 .hero__img {
   width: 100%;
@@ -265,7 +265,6 @@ img {
   margin-top: 50px;
   background-color: rgb(42, 43, 61);
   border-radius: 10px;
-  
 }
 .subtitle {
   font-size: var(--subtitle-font-size);
@@ -305,7 +304,6 @@ img {
 .section__rates:hover .section__text {
   transform: rotate(-3deg);
   color: var(--primary-color);
-  
 }
 .section__text {
   color: #c7c9cf;
