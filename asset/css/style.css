@@ -261,10 +261,11 @@ img {
   color: var(--primary-color);
 }
 
-.section__skill {
+.subcontainer {
   margin-top: 50px;
   background-color: rgb(42, 43, 61);
-  border-radius: 22px;
+  border-radius: 10px;
+  
 }
 .subtitle {
   font-size: var(--subtitle-font-size);
@@ -293,13 +294,18 @@ img {
 }
 .section__text-skill-icon {
   font-size: var(--skill-font-size);
-  color: var(--paragraph-color);
+  color: white;
   transition: transform 500ms ease, color 500ms ease, text-shadow 500ms ease;
 }
-.section__text-skill:hover .section__text-skill-icon {
+.section__rates:hover .section__text-skill-icon {
   transform: rotate(9deg);
-  color: white;
+  color: #fff;
   text-shadow: 0 0 5px #fff;
+}
+.section__rates:hover .section__text {
+  transform: rotate(-3deg);
+  color: var(--primary-color);
+  
 }
 .section__text {
   color: #c7c9cf;
@@ -308,11 +314,16 @@ img {
   font-size: 1.3rem;
 }
 .section__bar {
-  width: 95%;
+  width: 0%;
   height: 5px;
-  background-color: black;
+  background-color: white;
+  transition: width 0.4s ease-in-out;
 }
-
+.section__rates:hover .section__bar {
+  width: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.4s ease-in-out;
+}
 .section__about {
   margin-top: 40px;
 }
@@ -534,17 +545,14 @@ img {
   box-shadow: 0 0 15px 2px #00000090;
   border-radius: 10px;
 }
-.section__contact {
-  background-color: rgb(42, 43, 61);
-  border-radius: 22px;
-  padding-bottom: 40px;
-}
+
 .section__contact-items {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
   gap: 50px;
+  padding-bottom: 50px;
 }
 .section__contact-item {
   width: 100%;
