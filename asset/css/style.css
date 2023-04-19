@@ -271,6 +271,7 @@ img {
   color: var(--primary-color);
   text-transform: uppercase;
   padding: 30px 0 20px 10px;
+  text-align: center;
 }
 
 .section__rates-container {
@@ -384,6 +385,7 @@ img {
 }
 .section__item {
   margin-bottom: 50px;
+  width: 16rem;
 }
 .section__about {
   position: relative;
@@ -440,13 +442,14 @@ img {
   font-weight: var(--font-semibold);
 }
 .section__skill-paragraph {
-  width: 200px;
+  text-align: center;
   padding-top: 10px;
 }
 .section__portafolio {
-  margin-bottom: 50px;
+  margin: 50px auto;
 }
 .section__portafolio-items {
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -543,7 +546,9 @@ img {
   box-shadow: 0 0 15px 2px #00000090;
   border-radius: 10px;
 }
-
+.section__figure-services{
+  width: 16rem;
+}
 .section__contact-items {
   display: flex;
   justify-content: center;
