@@ -150,7 +150,6 @@ img {
 .hero__main-figure {
   width: 100%;
   position: relative;
-  margin: 0 auto;
 }
 .bx {
   color: white;
@@ -236,6 +235,7 @@ img {
 
 .hero__main-cta {
   position: relative;
+  white-space: nowrap;
   gap: 25px;
   color: #fff;
   background: var(--primary-color);
@@ -262,7 +262,7 @@ img {
 }
 
 .subcontainer {
-  margin-top: 50px;
+  margin-top: 3.2rem;
   background-color: rgb(42, 43, 61);
   border-radius: 10px;
 }
@@ -328,6 +328,8 @@ img {
 }
 .section__about-main {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 .section__about-img {
@@ -384,7 +386,7 @@ img {
   color: var(--paragraph-color);
 }
 .section__item {
-  margin-bottom: 50px;
+  margin-bottom: 3.2rem;
   width: 16rem;
 }
 .section__about {
@@ -446,7 +448,7 @@ img {
   padding-top: 10px;
 }
 .section__portafolio {
-  margin: 50px auto;
+  margin: 3.2rem auto;
 }
 .section__portafolio-items {
   margin-top: 2rem;
@@ -462,7 +464,12 @@ img {
   overflow: hidden;
   color: white;
 }
-
+.section__texts {
+  flex: 1;
+}
+.section__figure {
+  width: 16rem;
+}
 .section__portafolio-img {
   border-radius: 10px 10px 0 0;
 }
@@ -546,7 +553,7 @@ img {
   box-shadow: 0 0 15px 2px #00000090;
   border-radius: 10px;
 }
-.section__figure-services{
+.section__figure-services {
   width: 16rem;
 }
 .section__contact-items {
@@ -554,8 +561,8 @@ img {
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
-  gap: 50px;
-  padding-bottom: 50px;
+  gap: 3.2rem;
+  padding-bottom: 3.2rem;
 }
 .section__contact-item {
   width: 100%;
@@ -616,10 +623,17 @@ img {
   .hero__main-vector {
     display: none;
   }
+  .section__about-main {
+    flex-direction: row;
+  }
   .section__rates-container {
     justify-content: center;
     gap: 45px;
     padding: 30px 0;
+  }
+
+  .section__figure {
+    flex: 0.4;
   }
   .hero__menu {
     align-items: flex-end;
@@ -657,7 +671,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 5.2rem;
   }
   .hero__main-texts {
     margin-top: 0;
@@ -666,7 +680,7 @@ img {
   .hero__main-figure {
     display: flex;
     justify-content: center;
-    width: 430px;
+    width: 31rem;
     border-radius: 10px;
     overflow: hidden;
     border: 5px solid cadetblue;
@@ -696,7 +710,7 @@ img {
     font-size: 60px;
   }
   .hero__social {
-    margin-top: 50px;
+    margin-top: 3.2rem;
     margin-bottom: 70px;
     justify-content: flex-start;
   }
@@ -712,14 +726,14 @@ img {
   }
 
   .hero__main-cta {
-    font-size: 22px;
-    padding: 20px 50px;
+    font-size: 1.4rem;
+    padding: 1.4rem 3.2rem;
   }
   .hero__main-cta i {
     font-size: 32px;
   }
   .hero {
-    margin-bottom: 100px;
+    height: 100vh;
   }
   .section__paragraph {
     font-size: 25px;
