@@ -8,6 +8,7 @@
   --body-font: "Rubik", sans-serif;
   --skill-font-size: 80px;
   --subtitle-font-size: 32px;
+  --sub-subtitle-font-size: 22px;
   --subsection-font-size: 18px;
   --body-font-size: 17px;
   --header-subtitle: 2.8rem;
@@ -230,6 +231,7 @@ img {
 }
 .hero__main-icons:hover {
   transform: scale(1.1);
+  color: #fff;
 }
 
 .hero__main-cta {
@@ -261,7 +263,7 @@ img {
 }
 
 .subcontainer {
-  margin-bottom: 3.2rem ;
+  margin-bottom: 3.2rem;
   background-color: rgb(42, 43, 61);
   border-radius: 10px;
 }
@@ -271,6 +273,20 @@ img {
   text-transform: uppercase;
   padding: 30px 0 20px 10px;
   text-align: center;
+}
+.sub-subtitle {
+  color: white;
+  font-weight: var(--font-semibold);
+  font-size: var(--sub-subtitle-font-size);
+  margin-left: 3rem;
+}
+.icon-letter {
+  display: inline-block;
+  font-size: 2rem;
+  position: relative;
+  top: -30px;
+  color: white;
+  transition: transform 500ms ease, color 500ms ease, text-shadow 500ms ease;
 }
 
 .section__rates-container {
@@ -298,6 +314,11 @@ img {
   transition: transform 500ms ease, color 500ms ease, text-shadow 500ms ease;
 }
 .section__rates:hover .section__text-skill-icon {
+  transform: rotate(9deg);
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+}
+.section__rates:hover .icon-letter {
   transform: rotate(9deg);
   color: #fff;
   text-shadow: 0 0 5px #fff;
@@ -331,7 +352,7 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: var(--pading-vertical) ;
+  padding: var(--pading-vertical);
 }
 .section__about-img {
   animation: animation 3s infinite;
@@ -385,7 +406,7 @@ img {
   align-items: center;
   text-align: center;
   color: var(--paragraph-color);
-  padding: var(--pading-vertical) ;
+  padding: var(--pading-vertical);
 }
 .section__item {
   margin-bottom: 3.2rem;
@@ -573,7 +594,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1px solid cadetblue;
+  border-bottom: 1px solid var(--primary-color);
 
   transition: border-bottom 500ms ease;
 }
@@ -596,7 +617,7 @@ img {
   transform: scale(1.2);
 }
 .section__contact-item:hover {
-  border-bottom: 7px solid cadetblue;
+  border-bottom: 7px solid var(--primary-color);
   transition: border-bottom 500ms ease;
 }
 .section__contact-paragraph {
