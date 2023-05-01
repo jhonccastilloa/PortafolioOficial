@@ -16,7 +16,7 @@
   --pading-vertical: 1rem 0 3rem 0;
   --font-regular: 400;
   --font-semibold: 600;
-
+  --font-size-normal: 1rem;
   --z-modal: 10;
   --z-fixed: 100;
 
@@ -129,6 +129,7 @@ img {
 
 .nav__cta {
   color: var(--paragraph-color);
+  font-size: var(--font-size-normal);
 }
 .nav__cta:hover {
   color: var(--primary-color);
