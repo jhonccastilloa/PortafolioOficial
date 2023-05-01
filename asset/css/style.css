@@ -1,7 +1,5 @@
 /* @import url(); */
 :root {
-  --header-height: 60px;
-  /* --primary-color: #34b0be; */
   --primary-color: #01be96;
   --icons-color: #b1b9bf;
   --body-color: #191923;
@@ -12,7 +10,9 @@
   --subtitle-font-size: 32px;
   --subsection-font-size: 18px;
   --body-font-size: 17px;
-
+  --header-subtitle: 2.8rem;
+  --header-title: 4rem;
+  --pading-vertical: 1rem 0 3rem 0;
   --font-regular: 400;
   --font-semibold: 600;
 
@@ -63,7 +63,7 @@ img {
 }
 .container {
   width: 90%;
-  max-width: 1280px;
+  max-width: 1380px;
   margin: auto;
 }
 .grid--container {
@@ -87,7 +87,6 @@ img {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  font-size: 1.5rem;
   padding: 2rem 0 0.5rem;
 }
 .hero__main {
@@ -262,7 +261,7 @@ img {
 }
 
 .subcontainer {
-  margin-top: 3.2rem;
+  margin-bottom: 3.2rem ;
   background-color: rgb(42, 43, 61);
   border-radius: 10px;
 }
@@ -279,6 +278,7 @@ img {
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-around;
+  padding: var(--pading-vertical);
 }
 .section__rates {
   width: 150px;
@@ -331,6 +331,7 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  padding: var(--pading-vertical) ;
 }
 .section__about-img {
   animation: animation 3s infinite;
@@ -384,6 +385,7 @@ img {
   align-items: center;
   text-align: center;
   color: var(--paragraph-color);
+  padding: var(--pading-vertical) ;
 }
 .section__item {
   margin-bottom: 3.2rem;
@@ -447,15 +449,13 @@ img {
   text-align: center;
   padding-top: 10px;
 }
-.section__portafolio {
-  margin: 3.2rem auto;
-}
+
 .section__portafolio-items {
-  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
+  padding: var(--pading-vertical);
 }
 .section__portafolio-figure {
   position: relative;
@@ -562,7 +562,7 @@ img {
   flex-wrap: wrap;
   text-align: center;
   gap: 3.2rem;
-  padding-bottom: 3.2rem;
+  padding: var(--pading-vertical);
 }
 .section__contact-item {
   width: 100%;
@@ -629,7 +629,6 @@ img {
   .section__rates-container {
     justify-content: center;
     gap: 45px;
-    padding: 30px 0;
   }
 
   .section__figure {
@@ -704,10 +703,10 @@ img {
   }
 
   .hero__subtitle {
-    font-size: 42px;
+    font-size: var(--header-subtitle);
   }
   .hero__title {
-    font-size: 60px;
+    font-size: var(--header-title);
   }
   .hero__social {
     margin-top: 3.2rem;
