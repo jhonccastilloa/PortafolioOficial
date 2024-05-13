@@ -1,0 +1,204 @@
+---
+const navItems = [
+  { label: "Inicio", href: "#home" },
+  { label: "Acerca de mí", href: "#about" },
+  { label: "Habilidades", href: "#skill" },
+  { label: "Estudios", href: "#studies" },
+  { label: "Servicios", href: "#service" },
+  { label: "Mi portafolio", href: "#portafoly" },
+  { label: "contacto", href: "#contact" },
+];
+---
+
+<nav class="hero__nav-container">
+  <div class="hero__nav">
+    <figure class="hero__img">
+      <img class="hero__vector" src="/vectores/Decor.svg" alt="" />
+    </figure>
+    <div class="hero__menu">
+      <a class="btn__close"><i class="bx bx-x"></i></a>
+      <ul class="hero__list">
+        {
+          navItems.map(({ href, label }) => (
+            <li class="hero__item">
+              <a class="nav__cta " href={href}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <a class="btn-open"><i class="bx bx-menu"></i></a>
+  </div>
+</nav>
+
+<script>
+  const btnMenu = document.querySelector(".btn-open");
+  const btnClose = document.querySelector(".btn__close");
+  const menu = document.querySelector(".hero__menu");
+
+  btnMenu?.addEventListener("click", () => {
+    console.log("me hice clikc");
+    menu?.classList.add("show--menu");
+  });
+  btnClose?.addEventListener("click", () => {
+    menu?.classList.remove("show--menu");
+  });
+
+  //------//
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        const menuLink = document.querySelector(`.hero__list a[href="#${id}"]`);
+        if (entry.isIntersecting) {
+          let current = document.querySelector(".active");
+          current?.classList.remove("active");
+          menuLink?.classList.add("active");
+        }
+      });
+    },
+    { rootMargin: "-35% 0px -65% 0px" }
+  );
+
+  const sections = document.querySelectorAll(".nav__cta");
+  for (let i = 0; i < sections.length; i++) {
+    const hash = sections[i].getAttribute("href");
+    if (hash) {
+      const section = document.querySelector(hash);
+      if (section) {
+        observer.observe(section);
+      }
+    }
+  }
+</script>
+
+<style>
+  .nav__cta {
+    color: var(--paragraph-color);
+    font-size: var(--text-base);
+  }
+  .hero__item {
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .hero__nav-container {
+    width: 90%;
+    max-width: 1380px;
+    margin: auto;
+  }
+  .hero__nav {
+    top: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 2rem 0 0.5rem;
+  }
+  .hero__img {
+    width: 100%;
+    height: auto;
+  }
+  .hero__vector {
+    width: 80px;
+    height: auto;
+  }
+  .hero__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  .btn__close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    background-color: rgb(42, 43, 61);
+    border-radius: 23px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-open {
+    position: fixed;
+    z-index: 99;
+    background-color: rgb(42, 43, 61);
+    border-radius: 23px;
+    padding: 10px;
+  }
+
+  .nav__cta {
+    color: var(--paragraph-color);
+    font-size: var(--font-size-normal);
+  }
+  .nav__cta:hover {
+    color: var(--primary-color);
+    border-bottom: 1.5px solid var(--primary-color);
+  }
+  .active {
+    color: var(--primary-color);
+    border-bottom: 1.5px solid var(--primary-color);
+  }
+
+  @media (max-width: 768px) {
+    .hero__menu {
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      padding: 2rem 1rem 1rem;
+      background-color: hsl(246, 16%, 12%);
+      transition: 0.5s;
+      z-index: var(--z-fixed);
+      border-bottom: 2px solid var(--primary-color);
+      border-radius: 0 0 22px 22px;
+    }
+    .show--menu {
+      top: 0;
+    }
+  }
+  @media (min-width: 768px) {
+    .section__about-main {
+      flex-direction: row;
+    }
+
+    .hero__menu {
+      align-items: flex-end;
+      position: fixed;
+      z-index: var(--z-fixed);
+      background-color: hsl(246, 16%, 12%);
+      border-radius: 23px;
+    }
+    .btn__close {
+      display: none;
+    }
+    .hero__vector {
+      width: 150px;
+      height: auto;
+    }
+
+    .btn-open {
+      display: none;
+    }
+    .hero__list {
+      height: 40px;
+      flex-direction: row;
+      justify-content: flex-end;
+      font-weight: var(--font-regular);
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+      font-size: 14px;
+      padding: 0 15px;
+    }
+    .hero__item {
+      margin: 0;
+    }
+  }
+</style>

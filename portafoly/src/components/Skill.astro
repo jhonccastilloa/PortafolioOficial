@@ -1,0 +1,37 @@
+---
+import SkillRate from "./SkillRate.astro";
+import Npm from "./icons/Npm.astro";
+
+const FRONT_END_SKILLS = [
+  { name: "JavaScript", icon: "bxl-javascript" },
+  { name: "TypeScript", icon: "bxl-typescript" },
+  { name: "CSS 3", icon: "bxl-css3" },
+  { name: "React JS", icon: "bxl-react" },
+  { name: "React Native", icon: "bx-mobile-alt" },
+  { name: "Redux", icon: "bxl-redux" },
+  { name: "Angular", icon: "bxl-angular" },
+  { name: "Bootstrap", icon: "bxl-bootstrap" },
+  { name: "HTML 5", icon: "bxl-html5" },
+];
+const BACK_END_SKILLS = [
+  { name: "Express JS", icon: "bxl-nodejs" },
+  { name: "PHP", icon: "bxl-php" },
+  { name: "Postgres SQL", icon: "bxl-postgresql" },
+  { name: "Mongo DB", icon: "bxl-mongodb" },
+];
+// const getNpmIcon = () => <Npm color="#fff" size={50} />;
+const TOOLS = [
+  { name: "GIT", icon: "bxl-git" },
+  { name: "NPM", icon: "npm.svg" },
+  { name: "NPM", icon: "postman.svg" },
+];
+---
+
+<>
+  <SkillRate skills={FRONT_END_SKILLS} subtitle="Fron End" />
+  <SkillRate skills={BACK_END_SKILLS} subtitle="Back End" />
+  <SkillRate skills={TOOLS} subtitle="Herramientas" />
+  <!-- <Npm color="#fff" size={50} /> -->
+  <!-- {getNpmIcon()} -->
+  <!-- <SkillRate skills={FRONT_END_SKILLS} subtitle="Fron End" /> -->
+</>

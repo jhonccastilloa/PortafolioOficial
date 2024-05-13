@@ -1,0 +1,87 @@
+---
+import Icon from "./Icon.astro";
+interface Props {
+  name: string;
+  icon: string;
+}
+
+const { icon, name } = Astro.props;
+---
+
+<div class="skillItem__rates">
+  <div class="skillItem__bar"></div>
+  <p class="skillItem__text-skill">
+    {
+      !icon.includes("svg") ? (
+        <i class={`skillItem__text-skill-icon bx ${icon}`} />
+      ) : (
+        <Icon icon="npm" class="skillItem__img-icon" color="#fff" />
+      )
+    }
+    <h3 class="skillItem__text">{name}</h3>
+  </p>
+
+  <style>
+    .skillItem__rates {
+      width: 150px;
+      position: relative;
+    }
+    .skillItem__rates:hover .skillItem__text-skill-icon {
+      transform: rotate(9deg);
+      color: #fff;
+      text-shadow: 0 0 5px #fff;
+    }
+    .skillItem__rates:hover .icon-letter {
+      transform: rotate(9deg);
+      color: #fff;
+      text-shadow: 0 0 5px #fff;
+    }
+    .skillItem__rates:hover .skillItem__text {
+      transform: rotate(-3deg);
+      color: var(--primary-color);
+    }
+    .skillItem__bar {
+      width: 0%;
+      height: 5px;
+      background-color: white;
+      transition: width 0.4s ease-in-out;
+    }
+    .skillItem__rates:hover .skillItem__bar {
+      width: 100%;
+      background-color: var(--primary-color);
+      transition: width 0.4s ease-in-out;
+    }
+    .skillItem__text-skill {
+      color: var(--icons-color);
+      font-weight: var(--font-semibold);
+      font-size: var(--skill-font-size);
+      padding: 26px 0;
+      background-color: var(--body-color);
+      box-shadow: 0 2px 9px 2px #00000024;
+    }
+    .skillItem__text-skill-icon {
+      font-size: var(--skill-font-size);
+      color: white;
+      transition:
+        transform 500ms ease,
+        color 500ms ease,
+        text-shadow 500ms ease;
+    }
+    .skillItem__text {
+      color: #c7c9cf;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    .skillItem__img-icon {
+      width: 4rem;
+      transition:
+        transform 500ms ease,
+        filter 500ms ease;
+    }
+    .skillItem__rates:hover .skillItem__img-icon {
+      transform: rotateZ(90deg);
+      filter: drop-shadow(0 0 5px #fff);
+    }
+  </style>
+</div>

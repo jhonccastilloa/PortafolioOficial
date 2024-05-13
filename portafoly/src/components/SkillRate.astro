@@ -1,0 +1,43 @@
+---
+import SkillItem from "./SkillItem.astro";
+
+type Skill = {
+  name: string;
+  icon: string;
+};
+
+interface Props {
+  subtitle: string;
+  skills: Skill[];
+}
+const { subtitle, skills } = Astro.props;
+---
+
+<>
+  <h3 class="sub-subtitle">{subtitle}</h3>
+  <div class="section__rates-container">
+    {skills.map(({ icon, name }) => <SkillItem icon={icon} name={name} />)}
+  </div>
+</>
+
+<style>
+  .sub-subtitle {
+    color: white;
+    font-weight: var(--font-semibold);
+    font-size: var(--sub-subtitle-font-size);
+    margin-left: 3rem;
+  }
+  .section__rates-container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+    padding: var(--pading-vertical);
+  }
+  @media (min-width: 768px) {
+    .section__rates-container {
+      justify-content: center;
+      gap: 45px;
+    }
+  }
+</style>

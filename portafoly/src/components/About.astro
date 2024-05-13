@@ -1,0 +1,75 @@
+<div class="section__about-main">
+  <div class="section__texts">
+    <p class="section__paragraph">
+      Desarrollador full stack con bachiller en ingeniería de sistemas y una
+      gran pasión por el desarrollo web. Tengo gran experiencia y conocimientos
+      que me permiten desarrollar aplicaciones web o movil personalizadas y
+      eficientes que se adaptan a las necesidades de los usuarios.
+    </p>
+    <p class="section__paragraph">
+      Siempre estoy en busca de nuevo retos y oportunidades que me permitan
+      crecer profesionalemente. Si estás buscando un desarrollador web/movil
+      apasionado y comprometido, estoy aquí para ayudarte a alcanzar tus
+      objetivos con soluciones innovadoras y eficientes.
+    </p>
+  </div>
+  <figure class="section__figure">
+    <img
+      src="/logos-imagenes/programing.png"
+      class="section__about-img"
+      alt="programing"
+    />
+  </figure>
+</div>
+
+<style>
+  .section__about {
+    position: relative;
+  }
+  .section__about-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: var(--pading-vertical);
+  }
+  .section__about-img {
+    animation: animation 3s infinite;
+    -webkit-animation: animation 3s infinite;
+    -webkit-filter: drop-shadow(0 10px 10px rgba(1, 190, 149, 0.439));
+    filter: drop-shadow(0 10px 10px rgba(1, 190, 149, 0.439216));
+    transition: -webkit-transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    transition:
+      transform 0.4s ease-in-out,
+      -webkit-transform 0.4s ease-in-out;
+    width: 100%;
+  }
+  .section__texts {
+    flex: 1;
+  }
+  .section__paragraph {
+    line-height: 1.5;
+    font-size: var(--body-font-size);
+    color: var(--paragraph-color);
+    padding: 0 0 15px 0;
+    transition:
+      color 300ms ease,
+      text-shadow 300ms ease;
+  }
+  .section__paragraph:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+  }
+  .section__figure {
+    width: 16rem;
+  }
+  @media (min-width: 768px) {
+    .section__about-main {
+      flex-direction: row;
+    }
+    .section__paragraph {
+      font-size: var(--text-xl);
+    }
+  }
+</style>

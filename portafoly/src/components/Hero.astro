@@ -1,0 +1,228 @@
+<section class="hero__main">
+  <div class="hero__main-figure">
+    <figure class="hero__main-vector">
+      <img src="/vectores/Vector.svg" alt="Vector" />
+    </figure>
+    <img
+      class="hero__main-img"
+      src="/logos-imagenes/foto.png"
+      alt="Fotografia de mi persona"
+    />
+    <img
+      class="hero__main-img-web"
+      src="/logos-imagenes/fotoPrin.jpg"
+      alt="Fotografia de mi persona"
+    />
+  </div>
+  <div class="hero__main-texts">
+    <h2 class="hero__subtitle">Hola, soy Jhon Castillo</h2>
+    <h1 class="hero__title">
+      Full Stack <br />
+      Developer
+    </h1>
+    <ul class="hero__social">
+      <li class="hero__main-icons" title="Git Hub">
+        <a href="https://github.com/jhonccastilloa" target="_blank">
+          <i class="bx bxl-github hero__main-icon"></i>
+        </a>
+      </li>
+      <li class="hero__main-icons" title="Linkedin">
+        <a href="https://www.linkedin.com/in/jccastilloa/" target="_blank">
+          <i class="bx bxl-linkedin hero__main-icon"></i>
+        </a>
+      </li>
+      <li class="hero__main-icons" title="Codewars">
+        <a href="https://www.codewars.com/users/Castillo-SAN" target="_blank"
+          ><img
+            class="img__codewars"
+            src="/vectores/codewars.svg"
+            alt="Codewars"
+          />
+        </a>
+      </li>
+    </ul>
+    <a
+      href="JhonCarlosCastilloAtencio-cv.pdf"
+      target="_blank"
+      class="hero__main-cta"
+      ><i class="bx bxs-file hero__main-cta-icon"></i>Ver Hoja de Vida
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero__main {
+    margin-top: 2rem;
+  }
+  .hero__main-figure {
+    width: 100%;
+    position: relative;
+  }
+  .hero__main-vector {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    width: 12.5rem;
+    transform: translate(-50%, -50%);
+  }
+  .img__codewars {
+    width: var(--text-xl);
+    color: #b1b9bf;
+  }
+  .hero__main-texts {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .hero__main-img {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 12.5rem;
+  }
+
+  .hero__subtitle {
+    color: var(--primary-color);
+    font-size: var(--subsection-font-size);
+    padding-bottom: 0.3rem;
+  }
+  .hero__social {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .hero__title {
+    font-size: var(--subtitle-font-size);
+    color: white;
+  }
+  .hero__main-icons {
+    border: 2px solid var(--icons-color);
+    border-radius: 50%;
+    width: 1.7rem;
+    height: 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+      transform 500ms ease,
+      color 500ms ease;
+    color: var(--paragraph-color);
+  }
+  .hero__main-icon {
+    font-size: var(--text-base);
+    color: var(--paragraph-color);
+  }
+  .hero__main-icons:hover {
+    transform: scale(1.1);
+    color: #fff;
+  }
+  .hero__main-cta {
+    position: relative;
+    white-space: nowrap;
+    gap: 1.7rem;
+    color: #fff;
+    background: var(--primary-color);
+    font-size: var(--text-sm);
+    height: 50%;
+    padding: 0.6rem 2rem;
+    border-radius: 0 2rem 2rem 0;
+    transition:
+      color 1s ease,
+      background 1s ease;
+  }
+  .hero__main-cta-icon {
+    color: #fff;
+    font-size: var(--text-base);
+    vertical-align: middle;
+    padding-right: 15px;
+    transition:
+      color 1s ease,
+      background 1s ease;
+  }
+  .hero__main-cta:hover {
+    color: var(--primary-color);
+    background: #fff;
+  }
+  .hero__main-cta:hover i {
+    color: var(--primary-color);
+  }
+  .hero__main-img-web {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .hero__main-vector {
+      display: none;
+    }
+
+    .hero__main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5.2rem;
+    }
+    .hero__main-texts {
+      margin-top: 0;
+      text-align: start;
+    }
+    .hero__main-figure {
+      display: flex;
+      justify-content: center;
+      width: 31rem;
+      border-radius: 0.7rem;
+      overflow: hidden;
+      border: 5px solid cadetblue;
+      filter: grayscale(100%);
+      transition:
+        filter 2s ease,
+        transform 500ms ease;
+    }
+    .hero__main-figure:hover {
+      filter: grayscale(0);
+      transform: scale(0.9);
+    }
+    .hero__main-img {
+      display: none;
+    }
+    .hero__main-img-web {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: bottom;
+    }
+    .hero__main-vector {
+      width: 17rem;
+    }
+
+    .hero__subtitle {
+      font-size: var(--text-3xl);
+    }
+    .hero__title {
+      font-size: var(--text-5xl);
+    }
+    .hero__social {
+      margin-top: 3.2rem;
+      margin-bottom: 4.3rem;
+      justify-content: flex-start;
+    }
+    .hero__main-icons {
+      border: 2px solid var(--icons-color);
+      border-radius: 50%;
+      width: 2.8rem;
+      height: 2.8rem;
+      text-align: center;
+    }
+    .hero__main-icon {
+      font-size: var(--text-xl);
+    }
+
+    .hero__main-cta {
+      font-size: 1.4rem;
+      padding: 1.4rem 3.2rem;
+    }
+    .hero__main-cta-icon {
+      font-size: var(--text-2xl);
+    }
+  }
+</style>

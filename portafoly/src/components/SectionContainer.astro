@@ -1,0 +1,25 @@
+---
+interface Props {
+  id: string;
+  isAlter?: boolean;
+}
+const { id, isAlter } = Astro.props;
+---
+
+<section class={`${isAlter && "subcontainer"} container`} id={id}>
+  <slot />
+</section>
+
+<style>
+  .container {
+    padding-top: 40px;
+    width: 90%;
+    max-width: 1380px;
+    margin: auto;
+  }
+  .subcontainer {
+    margin-bottom: 3.2rem;
+    background-color: rgb(42, 43, 61);
+    border-radius: 10px;
+  }
+</style>
