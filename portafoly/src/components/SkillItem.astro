@@ -1,21 +1,17 @@
 ---
-import Icon from "./Icon.astro";
-interface Props {
-  name: string;
-  icon: string;
-}
+import type { Skill } from "../interfaces/types";
 
-const { icon, name } = Astro.props;
+const { icon, name, Icon } = Astro.props as Skill;
 ---
 
 <div class="skillItem__rates">
   <div class="skillItem__bar"></div>
   <p class="skillItem__text-skill">
     {
-      !icon.includes("svg") ? (
-        <i class={`skillItem__text-skill-icon bx ${icon}`} />
+      Icon ? (
+        <Icon class="skillItem__img-icon bx" color="#fff" } />
       ) : (
-        <Icon icon="npm" class="skillItem__img-icon" color="#fff" />
+        <i class={`skillItem__text-skill-icon bx ${icon}`} />
       )
     }
     <h3 class="skillItem__text">{name}</h3>
@@ -52,11 +48,12 @@ const { icon, name } = Astro.props;
       transition: width 0.4s ease-in-out;
     }
     .skillItem__text-skill {
-      color: var(--icons-color);
-      font-weight: var(--font-semibold);
-      font-size: var(--skill-font-size);
-      padding: 26px 0;
-      background-color: var(--body-color);
+      width: 10rem;
+      height: 10rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--secondary-color);
       box-shadow: 0 2px 9px 2px #00000024;
     }
     .skillItem__text-skill-icon {
@@ -74,13 +71,13 @@ const { icon, name } = Astro.props;
       font-size: 1.3rem;
     }
     .skillItem__img-icon {
-      width: 4rem;
+      width: var(--skill-font-size);
       transition:
         transform 500ms ease,
         filter 500ms ease;
     }
     .skillItem__rates:hover .skillItem__img-icon {
-      transform: rotateZ(90deg);
+      transform: rotateZ(9deg);
       filter: drop-shadow(0 0 5px #fff);
     }
   </style>

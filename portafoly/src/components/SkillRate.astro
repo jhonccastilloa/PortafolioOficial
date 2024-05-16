@@ -1,10 +1,7 @@
 ---
+import type { ComponentProps } from "astro/types";
 import SkillItem from "./SkillItem.astro";
-
-type Skill = {
-  name: string;
-  icon: string;
-};
+import type { Skill } from "../interfaces/types";
 
 interface Props {
   subtitle: string;
@@ -16,7 +13,7 @@ const { subtitle, skills } = Astro.props;
 <>
   <h3 class="sub-subtitle">{subtitle}</h3>
   <div class="section__rates-container">
-    {skills.map(({ icon, name }) => <SkillItem icon={icon} name={name} />)}
+    {skills.map((skill) => <SkillItem {...skill} />)}
   </div>
 </>
 

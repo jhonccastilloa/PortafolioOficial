@@ -41,6 +41,7 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 *,
 *::after,
 *::before {
@@ -48,14 +49,16 @@ html {
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: var(--body-font);
-  background-color: var(--body-color);
+  background-color: var(--secondary-color);
 }
 
 ul {
   list-style: none;
 }
+
 a {
   text-decoration: none;
 }

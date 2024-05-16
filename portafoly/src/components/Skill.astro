@@ -1,6 +1,7 @@
 ---
 import SkillRate from "./SkillRate.astro";
 import Npm from "./icons/Npm.astro";
+import Postman from "./icons/Postman.astro";
 
 const FRONT_END_SKILLS = [
   { name: "JavaScript", icon: "bxl-javascript" },
@@ -22,8 +23,8 @@ const BACK_END_SKILLS = [
 // const getNpmIcon = () => <Npm color="#fff" size={50} />;
 const TOOLS = [
   { name: "GIT", icon: "bxl-git" },
-  { name: "NPM", icon: "npm.svg" },
-  { name: "NPM", icon: "postman.svg" },
+  { name: "NPM", Icon: Npm },
+  { name: "Postman", Icon: Postman },
 ];
 ---
 
@@ -31,7 +32,4 @@ const TOOLS = [
   <SkillRate skills={FRONT_END_SKILLS} subtitle="Fron End" />
   <SkillRate skills={BACK_END_SKILLS} subtitle="Back End" />
   <SkillRate skills={TOOLS} subtitle="Herramientas" />
-  <!-- <Npm color="#fff" size={50} /> -->
-  <!-- {getNpmIcon()} -->
-  <!-- <SkillRate skills={FRONT_END_SKILLS} subtitle="Fron End" /> -->
 </>
