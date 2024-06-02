@@ -1,10 +1,14 @@
 :root {
   /* Colors */
   --primary-color: #01be96;
-  --secondary-color: #191923;
+  --secondary-color: #2a2b3d;
+  --surface-color: #01be9570;
   --icons-color: #b1b9bf;
-  --body-color: #191923;
-  --paragraph-color: #b1b9bf;
+  --background-color: #191923;
+  --background-color-secondary: #2a2b3d;
+  /* --paragraph-color: #b1b9bf; */
+  --text-color: #fff;
+  --text-color-secondary: #b1b9bf;
   /* Text Sizes */
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -15,17 +19,18 @@
   --text-3xl: 2.625rem;
   --text-4xl: 3.5rem;
   --text-5xl: 4rem;
+  --text-6xl: 5rem;
 
   --body-font: "Rubik", sans-serif;
   --skill-font-size: 80px;
-  --subtitle-font-size: 32px;
-  --sub-subtitle-font-size: 22px;
-  --subsection-font-size: 18px;
-  --body-font-size: 17px;
+  /* --subtitle-font-size: 32px; */
+  /* --sub-subtitle-font-size: 22px; */
+  /* --subsection-font-size: 18px; */
+  /* --body-font-size: 17px; */
   --pading-vertical: 1rem 0 3rem 0;
-  --font-regular: 400;
-  --font-semibold: 600;
-  --font-size-normal: 1rem;
+  /* --font-regular: 400; */
+  /* --font-semibold: 600; */
+  /* --font-size-normal: 1rem; */
   --z-modal: 10;
   --z-fixed: 100;
 
@@ -52,7 +57,7 @@ html {
 
 body {
   font-family: var(--body-font);
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
 }
 
 ul {

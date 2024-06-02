@@ -1,0 +1,7 @@
+export { default as About } from './About.astro'
+export { default as Hero } from './Hero.astro'
+export { default as Skill } from './Skill.astro'
+export { default as Study } from './Study.astro'
+export { default as Service } from './Service.astro'
+export { default as Portafoly } from './Portafoly.astro'
+export { default as Contact } from './Contact.astro'

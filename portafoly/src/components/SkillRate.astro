@@ -1,11 +1,10 @@
 ---
-import type { ComponentProps } from "astro/types";
-import SkillItem from "./SkillItem.astro";
-import type { Skill } from "../interfaces/types";
+import type { Tecnology } from "../interfaces/types";
+import { SkillItem } from "./";
 
 interface Props {
   subtitle: string;
-  skills: Skill[];
+  skills: Tecnology[];
 }
 const { subtitle, skills } = Astro.props;
 ---
@@ -19,9 +18,9 @@ const { subtitle, skills } = Astro.props;
 
 <style>
   .sub-subtitle {
-    color: white;
-    font-weight: var(--font-semibold);
-    font-size: var(--sub-subtitle-font-size);
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: var(--text-md);
     margin-left: 3rem;
   }
   .section__rates-container {

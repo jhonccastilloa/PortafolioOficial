@@ -1,0 +1,149 @@
+---
+import type { Tecnology } from "../interfaces/types";
+
+interface Props {
+  title: string;
+  tecnologies: Tecnology[];
+  linkRepository: string;
+  linkExample: string;
+  img: string;
+}
+
+const { tecnologies, title, linkExample, linkRepository, img } = Astro.props;
+---
+
+<div class="portafolyItem-item">
+  <figure class="portafolyItem-figure">
+    <img
+      class="portafolyItem-img"
+      src={`../../public/logos-imagenes/proyectos/${img}`}
+      alt="Eccomerce App"
+    />
+    <div class="portafolyItem-info">
+      <h4 class="portafolyItem-title">Hecho con:</h4>
+      <ul class="portafolyItem-icon">
+        {
+          tecnologies.map(({ name, Icon, icon }) => (
+            <li>
+              <i class={`portafolyItem-tecnology bx ${icon}`} title={name} />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="portafolyItem-buttons">
+        <a
+          href={linkExample}
+          target="_blank"
+          class="portfoly-link portfoly-link--reverse"
+          >Ver proyecto<i class="bx bx-link-external"></i></a
+        >
+        <a href={linkRepository} target="_blank" class="portfoly-link"
+          ><i class="bx bxl-github"></i>Ver Codigo</a
+        >
+      </div>
+    </div>
+  </figure>
+  <h3 class="portafolyItem-subtitle">{title}</h3>
+</div>
+
+<style>
+  .portafolyItem-item {
+    padding-bottom: 45px;
+    background-color: var(--background-color-secondary);
+    box-shadow: 0 0 15px 2px #00000090;
+    border-radius: 10px;
+  }
+  .portafolyItem-figure {
+    position: relative;
+    max-width: 325px;
+    height: 282px;
+    overflow: hidden;
+    color: var(--text-color);
+  }
+  .portafolyItem-img {
+    border-radius: 10px 10px 0 0;
+  }
+  .portafolyItem-item:hover .portafolyItem-info {
+    bottom: 0;
+    transition: bottom 500ms ease;
+  }
+  .portafolyItem-item:hover .portafolyItem-img {
+    filter: blur(4px);
+    transition: filter 500ms ease;
+  }
+  .portafolyItem-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+    width: 100%;
+    height: 282px;
+    padding: 6px;
+    position: absolute;
+    background-color: #1b1b1bb3;
+    bottom: -100%;
+    transition: bottom 500ms ease;
+  }
+  .portafolyItem-title {
+    font-size: var(--text-2xl);
+  }
+  .portafolyItem-icon {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .portafolyItem-tecnology {
+    font-size: 2.5rem;
+    transition: transform 500ms ease;
+  }
+  .portafolyItem-tecnology:hover {
+    transform: rotate(9deg);
+    transition: transform 500ms ease;
+  }
+  .portafolyItem-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .portafolyItem-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .portfoly-link {
+    display: flex;
+    width: 145px;
+    gap: 5px;
+    position: relative;
+    color: var(--text-color);
+    background: var(--background-color);
+    font-size: var(--text-sm);
+    padding: 8px 15px;
+    border-radius: 0 30px 30px 0;
+    transition:
+      box-shadow 0.5s ease,
+      transform 0.5s ease;
+  }
+  .portfoly-link i {
+    color: var(--text-color);
+    font-size: var(--text-base);
+    vertical-align: middle;
+  }
+  .portfoly-link--reverse {
+    border-radius: 30px 0 0 30px;
+    justify-content: flex-end;
+  }
+  .portfoly-link:hover {
+    box-shadow: 5px 5px 20px #000c;
+    transform: translateY(-3%);
+    transition:
+      box-shadow 0.5s ease,
+      transform 0.5s ease;
+  }
+  .portafolyItem-subtitle {
+    margin-top: 25px;
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 600;
+  }
+</style>

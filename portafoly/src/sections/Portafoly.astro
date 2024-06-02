@@ -1,0 +1,155 @@
+---
+import { PortafolyItem } from "../components";
+
+const projects = [
+  {
+    title: "Ecommerce App",
+    tecnologies: [
+      { name: "TypeScript", icon: "bxl-typescript" },
+      { name: "React JS", icon: "bxl-react" },
+      { name: "CSS3", icon: "bxl-css3" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/ecommerce",
+    linkExample: "https://eccomerce-electra.netlify.app/",
+    img: "ecomerce.png",
+  },
+  {
+    title: "Pokedex App",
+    tecnologies: [
+      { name: "TypeScript", icon: "bxl-typescript" },
+      { name: "React JS", icon: "bxl-react" },
+      { name: "CSS3", icon: "bxl-css3" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/Pokedex",
+    linkExample: "https://pokedex-jcastilloa.netlify.app/",
+    img: "pokedex.png",
+  },
+  {
+    title: "CRUD App",
+    tecnologies: [
+      { name: "TypeScript", icon: "bxl-typescript" },
+      { name: "React JS", icon: "bxl-react" },
+      { name: "CSS3", icon: "bxl-css3" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/CRUD-Users",
+    linkExample: "https://crud-users-jcastilloa.netlify.app/",
+    img: "crud.png",
+  },
+  {
+    title: "Rick and Morty Wiki",
+    tecnologies: [
+      { name: "TypeScript", icon: "bxl-typescript" },
+      { name: "React JS", icon: "bxl-react" },
+      { name: "CSS3", icon: "bxl-css3" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/Rick-and-Morty-App",
+    linkExample: "https://rick-adn-morty-wiki-jcastilloa.netlify.app/",
+    img: "RickAndMorty.png",
+  },
+  {
+    title: "Weather App",
+    tecnologies: [
+      { name: "React JS", icon: "bxl-react" },
+      { name: "JavaScript", icon: "bxl-javascript" },
+      { name: "CSS3", icon: "bxl-css3" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/Weather-App",
+    linkExample: "https://weather-app-jcastilloa.netlify.app/",
+    img: "weather.png",
+  },
+  {
+    title: "Quotes App",
+    tecnologies: [
+      { name: "React JS", icon: "bxl-react" },
+      { name: "JavaScript", icon: "bxl-javascript" },
+      { name: "CSS3", icon: "bxl-css3" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/Motivational-Quotes",
+    linkExample: "https://motivational-quote-for-click.netlify.app/",
+    img: "quotes.png",
+  },
+  {
+    title: "Calculator App",
+    tecnologies: [
+      { name: "React JS", icon: "bxl-react" },
+      { name: "JavaScript", icon: "bxl-javascript" },
+      { name: "CSS3", icon: "bxl-css3" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/Calculator-React",
+    linkExample: "https://jcastilloa-calculator-app.netlify.app/",
+    img: "calculator.png",
+  },
+  {
+    title: "Eccomerce En Equipo",
+    tecnologies: [
+      { name: "JavaScript", icon: "bxl-javascript" },
+      { name: "HTML5", icon: "bxl-html5" },
+      { name: "CSS3", icon: "bxl-css3" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/E-commerce",
+    linkExample: "https://ecommerce-136d06.netlify.app/",
+    img: "movies.png",
+  },
+  {
+    title: "Convocatorias CAS App",
+    tecnologies: [
+      { name: "PHP", icon: "bxl-php" },
+      { name: "JavaScript", icon: "bxl-javascript" },
+      { name: "HTML5", icon: "bxl-html5" },
+      { name: "Bootstrap", icon: "bxl-bootstrap" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/Convocatorias-CAS",
+    linkExample: "https://www.asis.drepuno.gob.pe/convocatorias/",
+    img: "convocatorias.png",
+  },
+  {
+    title: "Convocatorias CAS App",
+    tecnologies: [
+      { name: "PHP", icon: "bxl-php" },
+      { name: "JavaScript", icon: "bxl-javascript" },
+      { name: "HTML5", icon: "bxl-html5" },
+      { name: "Bootstrap", icon: "bxl-bootstrap" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/SISTitulos",
+    linkExample: "https://www.asis.drepuno.gob.pe/SISTitulos/",
+    img: "sisTitulos.png",
+  },
+  {
+    title: "Landing Page/Ecommerce",
+    tecnologies: [
+      { name: "PHP", icon: "bxl-php" },
+      { name: "JavaScript", icon: "bxl-javascript" },
+      { name: "HTML5", icon: "bxl-html5" },
+      { name: "Bootstrap", icon: "bxl-bootstrap" },
+      { name: "Un Cafecito", icon: "bxs-coffee" },
+    ],
+    linkRepository: "https://github.com/jhonccastilloa/Novatec-Energy",
+    linkExample: "https://novatecenergy.pe/",
+    img: "novatec.png",
+  },
+];
+---
+
+<div class="portafoly">
+  {projects.map((project) => <PortafolyItem {...project} />)}
+</div>
+
+<style>
+  .portafoly {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: var(--pading-vertical);
+  }
+</style>

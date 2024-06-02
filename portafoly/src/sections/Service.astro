@@ -1,0 +1,36 @@
+---
+import { ServiceItem } from "../components";
+
+const services = [
+  {
+    title: "Desarrollo Web",
+    text: `Que incluyen el diseño y la implementación del frontend, 
+            así como la configuración y el mantenimiento del backend.`,
+    img: "web_deveploment.png",
+  },
+  {
+    title: "Desarrollo Movil",
+    text: `Donde mi enfoque es el de crear aplicaciones móviles de alta
+              calidad que sean intuitivas y atractivas para los usuarios`,
+    img: "movil_development.png",
+  },
+  {
+    title: "Diseño responsivo",
+    text: `Que aseguran que la interfaz de usuario de la aplicación web sea
+              fácil de usar y esté optimizada para la navegación móvil.`,
+    img: "responsive_design.png",
+  },
+];
+---
+
+<div class={"service"}>
+  {services.map((section) => <ServiceItem {...section} />)}
+</div>
+
+<style>
+  .service {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+</style>

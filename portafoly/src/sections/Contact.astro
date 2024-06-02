@@ -1,0 +1,43 @@
+---
+import { ContactItem } from "../components";
+
+const contacs = [
+  { href: "tel:+51941882754", icon: "bxs-phone", text: "Call me" },
+  {
+    href: "mailto:jhoncarloscastilloatencio@gmail.com",
+    icon: "bxs-envelope",
+    text: "Mail me",
+  },
+  {
+    href: "https://wa.me//941882754?text=Hola muy buenas",
+    icon: "bxl-whatsapp",
+    text: "Text me",
+  },
+  {
+    href: "https://github.com/jhonccastilloa",
+    icon: "bxl-github",
+    text: "Follow me",
+  },
+  {
+    href: "https://www.linkedin.com/in/jccastilloa/",
+    icon: "bxl-linkedin",
+    text: "Follow me",
+  },
+  { href: "", icon: "bxl-twitter", text: "Follow me" },
+];
+---
+
+<div class="contact">
+  {contacs.map((contact) => <ContactItem {...contact} />)}
+</div>
+
+<style>
+  .contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 3.2rem;
+    padding: var(--pading-vertical);
+  }
+</style>

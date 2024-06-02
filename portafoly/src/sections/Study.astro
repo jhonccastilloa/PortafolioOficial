@@ -1,0 +1,36 @@
+---
+import { StudyItem } from "../components";
+
+const studies = [
+  {
+    img: "logo_UNAP.png",
+    title: "Universidad Nacional del Altiplano",
+    date: "2017-2022",
+  },
+  { img: "logo_academlo.png", title: "Academlo", date: "2022-2023" },
+];
+---
+
+<div class="study">
+  {
+    studies.map(({ date, img, title }) => (
+      <StudyItem date={date} img={img} title={title} />
+    ))
+  }
+</div>
+
+<style>
+  .study {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--pading-vertical);
+  }
+  @media (min-width: 768px) {
+    .study {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+</style>

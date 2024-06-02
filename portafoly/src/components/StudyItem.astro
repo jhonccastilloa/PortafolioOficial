@@ -1,0 +1,87 @@
+---
+interface Props {
+  img: string;
+  title: string;
+  date: string;
+}
+const { date, img, title } = Astro.props;
+---
+
+<div class="studyItem">
+  <figure class="studyItem-figure">
+    <img
+      class="studyItem-img"
+      src={`../../public/logos-imagenes/${img}`}
+      alt=""
+    />
+  </figure>
+  <h3 class="studyItem-subtitle">{title}</h3>
+  <p class="studyItem-paragraph">{date}</p>
+</div>
+
+<style>
+  .studyItem {
+    margin-bottom: 3.2rem;
+    width: 16rem;
+  }
+  .studyItem-subtitle {
+    color: var(--text-color);
+    padding: 5px 0;
+  }
+  .studyItem-paragraph {
+    color: var(--text-color-secondary);
+    font-size: var(--text-base);
+  }
+  .studyItem-figure {
+    display: flex;
+    align-items: center;
+    height: 208px;
+    width: 163px;
+    margin: 0 auto;
+    filter: grayscale(100%);
+    transition:
+      transform 0.3s ease,
+      filter 0.5s ease;
+  }
+  .studyItem-figure:hover {
+    transform: scale(1.1);
+    filter: grayscale(0);
+  }
+  .studyItem-img {
+    animation: animation 3s infinite;
+    -webkit-animation: animation 3s infinite;
+    -webkit-filter: drop-shadow(0 10px 10px var(--surface-color));
+    filter: drop-shadow(0 10px 10px var(--surface-color));
+    transition: -webkit-transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    transition:
+      transform 0.4s ease-in-out,
+      -webkit-transform 0.4s ease-in-out;
+    width: 100%;
+  }
+  @keyframes animation {
+    0% {
+      transform: translateY(0px);
+      -webkit-transform: translateY(0px);
+      -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+      -o-transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+      -webkit-transform: translateY(-10px);
+      -moz-transform: translateY(-10px);
+      -ms-transform: translateY(-10px);
+      -o-transform: translateY(-10px);
+    }
+
+    100% {
+      transform: translateY(0px);
+      -webkit-transform: translateY(0px);
+      -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+      -o-transform: translateY(0px);
+    }
+  }
+</style>

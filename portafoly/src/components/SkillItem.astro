@@ -1,7 +1,7 @@
 ---
-import type { Skill } from "../interfaces/types";
+import type { Tecnology } from "../interfaces/types";
 
-const { icon, name, Icon } = Astro.props as Skill;
+const { icon, name, Icon } = Astro.props as Tecnology;
 ---
 
 <div class="skillItem__rates">
@@ -9,7 +9,7 @@ const { icon, name, Icon } = Astro.props as Skill;
   <p class="skillItem__text-skill">
     {
       Icon ? (
-        <Icon class="skillItem__img-icon bx" color="#fff" } />
+        <Icon class="skillItem__img-icon bx" color="var(--text-color)" />
       ) : (
         <i class={`skillItem__text-skill-icon bx ${icon}`} />
       )
@@ -24,13 +24,13 @@ const { icon, name, Icon } = Astro.props as Skill;
     }
     .skillItem__rates:hover .skillItem__text-skill-icon {
       transform: rotate(9deg);
-      color: #fff;
-      text-shadow: 0 0 5px #fff;
+      color: var(--text-color);
+      text-shadow: 0 0 5px var(--text-color);
     }
     .skillItem__rates:hover .icon-letter {
       transform: rotate(9deg);
-      color: #fff;
-      text-shadow: 0 0 5px #fff;
+      color: var(--text-color);
+      text-shadow: 0 0 5px var(--text-color);
     }
     .skillItem__rates:hover .skillItem__text {
       transform: rotate(-3deg);
@@ -39,7 +39,7 @@ const { icon, name, Icon } = Astro.props as Skill;
     .skillItem__bar {
       width: 0%;
       height: 5px;
-      background-color: white;
+      background-color: var(--text-color)
       transition: width 0.4s ease-in-out;
     }
     .skillItem__rates:hover .skillItem__bar {
@@ -53,32 +53,32 @@ const { icon, name, Icon } = Astro.props as Skill;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--secondary-color);
+      background-color: var(--background-color);
       box-shadow: 0 2px 9px 2px #00000024;
     }
     .skillItem__text-skill-icon {
       font-size: var(--skill-font-size);
-      color: white;
+      color: var(--text-color);
       transition:
         transform 500ms ease,
         color 500ms ease,
         text-shadow 500ms ease;
     }
     .skillItem__text {
-      color: #c7c9cf;
+      color: var(--text-color);
       margin-top: 15px;
       margin-bottom: 15px;
       font-size: 1.3rem;
     }
     .skillItem__img-icon {
-      width: var(--skill-font-size);
+      width: var(--text-6xl);
       transition:
         transform 500ms ease,
         filter 500ms ease;
     }
     .skillItem__rates:hover .skillItem__img-icon {
       transform: rotateZ(9deg);
-      filter: drop-shadow(0 0 5px #fff);
+      filter: drop-shadow(0 0 5px var(--text-color));
     }
   </style>
 </div>

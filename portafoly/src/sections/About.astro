@@ -36,8 +36,8 @@
   .section__about-img {
     animation: animation 3s infinite;
     -webkit-animation: animation 3s infinite;
-    -webkit-filter: drop-shadow(0 10px 10px rgba(1, 190, 149, 0.439));
-    filter: drop-shadow(0 10px 10px rgba(1, 190, 149, 0.439216));
+    -webkit-filter: drop-shadow(0 10px 10px var(--surface-color));
+    filter: drop-shadow(0 10px 10px var(--surface-color));
     transition: -webkit-transform 0.4s ease-in-out;
     transition: transform 0.4s ease-in-out;
     transition:
@@ -50,16 +50,16 @@
   }
   .section__paragraph {
     line-height: 1.5;
-    font-size: var(--body-font-size);
-    color: var(--paragraph-color);
+    font-size: var(--text-base);
+    color: var(--text-color);
     padding: 0 0 15px 0;
     transition:
       color 300ms ease,
       text-shadow 300ms ease;
   }
   .section__paragraph:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #fff;
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--text-color);
   }
   .section__figure {
     width: 16rem;

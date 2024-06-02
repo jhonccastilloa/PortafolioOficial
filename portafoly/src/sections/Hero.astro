@@ -1,3 +1,24 @@
+---
+const ICONS = [
+  {
+    link: "https://github.com/jhonccastilloa",
+    title: "Git Hub",
+    icon: "bxl-github",
+  },
+  {
+    link: "https://github.com/jhonccastilloa",
+    title: "Linkedin",
+    icon: "bxl-linkedin",
+  },
+  {
+    link: "https://www.codewars.com/users/Castillo-SAN",
+    title: "Codewars",
+    // icon: "bxl-github",
+    img: "/vectores/codewars.svg",
+  },
+];
+---
+
 <section class="hero__main">
   <div class="hero__main-figure">
     <figure class="hero__main-vector">
@@ -21,25 +42,19 @@
       Developer
     </h1>
     <ul class="hero__social">
-      <li class="hero__main-icons" title="Git Hub">
-        <a href="https://github.com/jhonccastilloa" target="_blank">
-          <i class="bx bxl-github hero__main-icon"></i>
-        </a>
-      </li>
-      <li class="hero__main-icons" title="Linkedin">
-        <a href="https://www.linkedin.com/in/jccastilloa/" target="_blank">
-          <i class="bx bxl-linkedin hero__main-icon"></i>
-        </a>
-      </li>
-      <li class="hero__main-icons" title="Codewars">
-        <a href="https://www.codewars.com/users/Castillo-SAN" target="_blank"
-          ><img
-            class="img__codewars"
-            src="/vectores/codewars.svg"
-            alt="Codewars"
-          />
-        </a>
-      </li>
+      {
+        ICONS.map(({ icon, title, link, img }) => (
+          <li class="hero__main-icons" title={title}>
+            <a href={link} target="_blank">
+              {img ? (
+                <img class="img__icon" src={img} alt={title} />
+              ) : (
+                <i class={`bx ${icon} hero__main-icon`} />
+              )}
+            </a>
+          </li>
+        ))
+      }
     </ul>
     <a
       href="JhonCarlosCastilloAtencio-cv.pdf"
@@ -66,9 +81,9 @@
     width: 12.5rem;
     transform: translate(-50%, -50%);
   }
-  .img__codewars {
+  .img__icon {
     width: var(--text-xl);
-    color: #b1b9bf;
+    color: var(--text-color);
   }
   .hero__main-texts {
     margin-top: 2rem;
@@ -83,7 +98,7 @@
 
   .hero__subtitle {
     color: var(--primary-color);
-    font-size: var(--subsection-font-size);
+    font-size: var(--text-md);
     padding-bottom: 0.3rem;
   }
   .hero__social {
@@ -94,11 +109,11 @@
     margin-bottom: 2rem;
   }
   .hero__title {
-    font-size: var(--subtitle-font-size);
-    color: white;
+    font-size: var(--text-2xl);
+    color: var(--text-color);
   }
   .hero__main-icons {
-    border: 2px solid var(--icons-color);
+    border: 2px solid var(--text-color);
     border-radius: 50%;
     width: 1.7rem;
     height: 1.7rem;
@@ -108,21 +123,21 @@
     transition:
       transform 500ms ease,
       color 500ms ease;
-    color: var(--paragraph-color);
+    color: var(--text-color);
   }
   .hero__main-icon {
     font-size: var(--text-base);
-    color: var(--paragraph-color);
+    color: var(--text-color);
   }
   .hero__main-icons:hover {
     transform: scale(1.1);
-    color: #fff;
+    color: var(--text-color);
   }
   .hero__main-cta {
     position: relative;
     white-space: nowrap;
     gap: 1.7rem;
-    color: #fff;
+    color: var(--text-color);
     background: var(--primary-color);
     font-size: var(--text-sm);
     height: 50%;
@@ -133,7 +148,7 @@
       background 1s ease;
   }
   .hero__main-cta-icon {
-    color: #fff;
+    color: var(--text-color);
     font-size: var(--text-base);
     vertical-align: middle;
     padding-right: 15px;
@@ -143,7 +158,7 @@
   }
   .hero__main-cta:hover {
     color: var(--primary-color);
-    background: #fff;
+    background: var(--text-color);
   }
   .hero__main-cta:hover i {
     color: var(--primary-color);
@@ -172,7 +187,7 @@
       width: 31rem;
       border-radius: 0.7rem;
       overflow: hidden;
-      border: 5px solid cadetblue;
+      border: 5px solid var(--primary-color);
       filter: grayscale(100%);
       transition:
         filter 2s ease,

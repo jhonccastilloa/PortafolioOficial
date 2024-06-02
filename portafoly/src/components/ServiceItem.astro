@@ -1,0 +1,41 @@
+---
+import { ImgAnimation } from "./";
+
+interface Props {
+  title: string;
+  text: string;
+  img: string;
+}
+
+const { img, text, title } = Astro.props;
+---
+
+<div class="serviceItem">
+  <figure class="serviceItem-figure">
+    <ImgAnimation alt={title} img={img} />
+  </figure>
+  <h3 class="serviceItem-subtitle">{title}</h3>
+  <p class="serviceItem-paragraph">
+    {text}
+  </p>
+</div>
+
+<style>
+  .serviceItem {
+    margin-bottom: 3.2rem;
+    width: 16rem;
+  }
+  .serviceItem-figure {
+    width: 16rem;
+  }
+  .serviceItem-subtitle {
+    color: var(--text-color);
+    font-weight: 600;
+    text-align: center;
+  }
+  .serviceItem-paragraph {
+    color: var(--text-color-secondary);
+    text-align: center;
+    padding-top: 10px;
+  }
+</style>

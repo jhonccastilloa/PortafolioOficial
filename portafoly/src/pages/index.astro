@@ -1,22 +1,46 @@
 ---
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import Skill from "../components/Skill.astro";
-import SectionContainer from "../components/SectionContainer.astro";
+import {
+  About,
+  Hero,
+  Skill,
+  Study,
+  Service,
+  Portafoly,
+  Contact,
+} from "../sections";
+import { SectionContainer } from "../components";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <Hero />
+    <SectionContainer id="home">
+      <Hero />
+    </SectionContainer>
     <SectionContainer id="about">
       <h2 class="subtitle">acerca de mí</h2>
       <About />
     </SectionContainer>
-    <SectionContainer id="about" isAlter>
+    <SectionContainer id="skill" isAlter>
       <h2 class="subtitle">habilidades</h2>
       <Skill />
+    </SectionContainer>
+    <SectionContainer id="study">
+      <h2 class="subtitle">ESTUDIOS</h2>
+      <Study />
+    </SectionContainer>
+    <SectionContainer id="service" isAlter>
+      <h2 class="subtitle">SERVICIOS</h2>
+      <Service />
+    </SectionContainer>
+    <SectionContainer id="service">
+      <h2 class="subtitle">MI PORTAFOLIO</h2>
+      <Portafoly />
+    </SectionContainer>
+    <SectionContainer id="service" isAlter>
+      <h2 class="subtitle">CONTACTO</h2>
+      <Contact />
     </SectionContainer>
   </main>
 </Layout>
@@ -29,7 +53,7 @@ import SectionContainer from "../components/SectionContainer.astro";
     margin: auto;
   }
   .subtitle {
-    font-size: var(--subtitle-font-size);
+    font-size: var(--text-2xl);
     color: var(--primary-color);
     text-transform: uppercase;
     padding: 30px 0 20px 10px;
