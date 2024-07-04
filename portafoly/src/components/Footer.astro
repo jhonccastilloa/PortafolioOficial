@@ -1,0 +1,25 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <p class="footer__text">
+    © {currentYear} jcastilloa. Todos los derechos reservados.
+  </p>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 25px;
+    height: 150px;
+    display: flex;
+    text-align: center;
+    align-items: flex-end;
+  }
+  .footer__text {
+    color: var(--primary-color);
+    font-size: 20px;
+    width: 100%;
+    margin: 20px 0;
+  }
+</style>

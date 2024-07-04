@@ -6,10 +6,9 @@
   --icons-color: #b1b9bf;
   --background-color: #191923;
   --background-color-secondary: #2a2b3d;
-  /* --paragraph-color: #b1b9bf; */
+  
   --text-color: #fff;
   --text-color-secondary: #b1b9bf;
-  /* Text Sizes */
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-md: 1.125rem;
@@ -23,14 +22,7 @@
 
   --body-font: "Rubik", sans-serif;
   --skill-font-size: 80px;
-  /* --subtitle-font-size: 32px; */
-  /* --sub-subtitle-font-size: 22px; */
-  /* --subsection-font-size: 18px; */
-  /* --body-font-size: 17px; */
   --pading-vertical: 1rem 0 3rem 0;
-  /* --font-regular: 400; */
-  /* --font-semibold: 600; */
-  /* --font-size-normal: 1rem; */
   --z-modal: 10;
   --z-fixed: 100;
 

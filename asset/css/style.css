@@ -626,19 +626,7 @@ img {
   color: var(--paragraph-color);
 }
 
-.footer {
-  margin-top: 25px;
-  height: 150px;
-  display: flex;
-  text-align: center;
-  align-items: flex-end;
-}
-.footer__text {
-  color: var(--primary-color);
-  font-size: 20px;
-  width: 100%;
-  margin: 20px 0;
-}
+
 
 @media (min-width: 768px) {
   .hero__main-vector {
