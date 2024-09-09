@@ -16,14 +16,14 @@ const { tecnologies, title, linkExample, linkRepository, img } = Astro.props;
   <figure class="portafolyItem-figure">
     <img
       class="portafolyItem-img"
-      src={`../../public/logos-imagenes/proyectos/${img}`}
+      src={`/logos-imagenes/proyectos/${img}`}
       alt="Eccomerce App"
     />
     <div class="portafolyItem-info">
       <h4 class="portafolyItem-title">Hecho con:</h4>
       <ul class="portafolyItem-icon">
         {
-          tecnologies.map(({ name, Icon, icon }) => (
+          tecnologies.map(({ name, icon }) => (
             <li>
               <i class={`portafolyItem-tecnology bx ${icon}`} title={name} />
             </li>

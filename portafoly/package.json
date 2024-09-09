@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && npm run copy-to-nginx",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "copy-to-nginx": "docker cp ./dist/. mi-nginx-ssl:/usr/share/nginx/html"
   },
   "dependencies": {
     "astro": "^4.8.2",

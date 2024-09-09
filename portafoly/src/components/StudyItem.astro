@@ -9,11 +9,7 @@ const { date, img, title } = Astro.props;
 
 <div class="studyItem">
   <figure class="studyItem-figure">
-    <img
-      class="studyItem-img"
-      src={`../../public/logos-imagenes/${img}`}
-      alt=""
-    />
+    <img class="studyItem-img" src={`/logos-imagenes/${img}`} alt="" />
   </figure>
   <h3 class="studyItem-subtitle">{title}</h3>
   <p class="studyItem-paragraph">{date}</p>
