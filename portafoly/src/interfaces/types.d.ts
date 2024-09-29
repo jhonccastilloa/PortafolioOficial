@@ -9,5 +9,3 @@ export interface Tecnology {
   icon?: string;
   Icon?: (_props: IconProps) => any;
 };
-
-// export interface
