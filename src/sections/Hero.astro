@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import photoPrincipal from '../assets/images/photo_principal.jpg';
+import photoPrincipalMini from '../assets/images/photo_principal_mini.png';
 const ICONS = [
   {
     link: "https://github.com/jhonccastilloa",
@@ -13,7 +16,6 @@ const ICONS = [
   {
     link: "https://www.codewars.com/users/Castillo-SAN",
     title: "Codewars",
-    // icon: "bxl-github",
     img: "/vectores/codewars.svg",
   },
 ];
@@ -24,15 +26,18 @@ const ICONS = [
     <figure class="hero__main-vector">
       <img src="/vectores/Vector.svg" alt="Vector" />
     </figure>
-    <img
+   
+    <Image
       class="hero__main-img"
-      src="/logos-imagenes/foto.png"
+      src={photoPrincipalMini}
       alt="Fotografia de mi persona"
-    />
-    <img
+      loading="eager"
+     />
+    <Image
       class="hero__main-img-web"
-      src="/logos-imagenes/fotoPrin.jpg"
+      src={photoPrincipal}
       alt="Fotografia de mi persona"
+      loading="eager"
     />
   </div>
   <div class="hero__main-texts">
@@ -45,7 +50,7 @@ const ICONS = [
       {
         ICONS.map(({ icon, title, link, img }) => (
           <li class="hero__main-icons" title={title}>
-            <a href={link} target="_blank">
+            <a href={link} target="_blank" rel="noopener noreferrer" aria-label={title}>
               {img ? (
                 <img class="img__icon" src={img} alt={title} />
               ) : (

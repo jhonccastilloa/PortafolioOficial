@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import type { Tecnology } from "../interfaces/types";
+import defaultImage from "../assets/images/default-image.avif";
 
 interface Props {
   title: string;
@@ -10,15 +12,21 @@ interface Props {
 }
 
 const { tecnologies, title, linkExample, linkRepository, img } = Astro.props;
+
+const projectImages = import.meta.glob<{ default: ImageMetadata }>(
+  `../assets/images/projects/*.png`
+);
+const imgPath = `../assets/images/projects/${img}`;
 ---
 
 <div class="portafolyItem-item">
   <figure class="portafolyItem-figure">
-    <img
+    <Image
+      alt={title}
+      src={projectImages[imgPath]() || defaultImage}
       class="portafolyItem-img"
-      src={`/logos-imagenes/proyectos/${img}`}
-      alt="Eccomerce App"
     />
+
     <div class="portafolyItem-info">
       <h4 class="portafolyItem-title">Hecho con:</h4>
       <ul class="portafolyItem-icon">

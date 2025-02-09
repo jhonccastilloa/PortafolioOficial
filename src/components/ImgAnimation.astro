@@ -1,14 +1,19 @@
 ---
+import { Image } from "astro:assets";
+import defaultImage from "../assets/images/default-image.avif";
+
 interface Props {
-  img: string;
+  img: () => Promise<{
+    default: ImageMetadata;
+  }>;
   alt: string;
   class?: string;
 }
 const { alt, img, class: className, ...rest } = Astro.props;
 ---
 
-<img
-  src={`/logos-imagenes/${img}`}
+<Image
+  src={img?.() || defaultImage}
   class={`imgAnimation ${className}`}
   alt={alt}
   {...rest}

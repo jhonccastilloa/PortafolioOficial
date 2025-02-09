@@ -1,3 +1,9 @@
+---
+import { Image } from 'astro:assets';
+import programing from '../assets/images/programing.png';
+
+---
+
 <div class="section__about-main">
   <div class="section__texts">
     <p class="section__paragraph">
@@ -14,11 +20,13 @@
     </p>
   </div>
   <figure class="section__figure">
-    <img
-      src="/logos-imagenes/programing.png"
+    <Image
+      src={programing}
       class="section__about-img"
-      alt="programing"
+      alt="logo de programacion"
     />
+
+   
   </figure>
 </div>
 

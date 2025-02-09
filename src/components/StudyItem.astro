@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
-  img: string;
+  img: ImageMetadata;
   title: string;
   date: string;
 }
@@ -9,7 +11,7 @@ const { date, img, title } = Astro.props;
 
 <div class="studyItem">
   <figure class="studyItem-figure">
-    <img class="studyItem-img" src={`/logos-imagenes/${img}`} alt="" />
+    <Image class="studyItem-img" src={img} alt={title} loading="lazy"/>
   </figure>
   <h3 class="studyItem-subtitle">{title}</h3>
   <p class="studyItem-paragraph">{date}</p>

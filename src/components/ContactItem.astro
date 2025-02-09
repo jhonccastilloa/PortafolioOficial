@@ -9,7 +9,7 @@ const { href, icon, text } = Astro.props;
 ---
 
 <div class="contactItem-item">
-  <a href={href} class="contactItem-link" target="_blank"
+  <a href={href||'#'} class="contactItem-link" target="_blank"
     ><i class={`contactItem-icon bx ${icon}`}></i>{text}</a
   >
 </div>
