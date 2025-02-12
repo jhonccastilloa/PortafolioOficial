@@ -5,8 +5,8 @@
   --surface-color: #01be9570;
   --icons-color: #b1b9bf;
   --background-color: #191923;
-  --background-color-secondary: #2a2b3d;
-  
+  --background-color-secondary: #2a2b3de1;
+
   --text-color: #fff;
   --text-color-secondary: #b1b9bf;
   --text-sm: 0.875rem;
@@ -50,8 +50,21 @@ html {
 body {
   font-family: var(--body-font);
   background-color: var(--background-color);
+  background-image: url("/vectores/circuit-background.svg");
+  background-size: 224px;
+  background-repeat: repeat;
+
+  animation: moveBackground 60s linear infinite;
 }
 
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -500px 500px;
+  }
+}
 ul {
   list-style: none;
 }
