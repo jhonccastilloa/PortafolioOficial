@@ -7,7 +7,7 @@ interface Props {
   title: string;
   tecnologies: Tecnology[];
   linkRepository: string;
-  linkExample: string;
+  linkExample?: string;
   img: string;
 }
 
@@ -39,12 +39,20 @@ const imgPath = `../assets/images/projects/${img}`;
         }
       </ul>
       <div class="portafolyItem-buttons">
-        <a
-          href={linkExample}
-          target="_blank"
-          class="portfoly-link portfoly-link--reverse"
-          >Ver proyecto<i class="bx bx-link-external"></i></a
-        >
+        {
+          linkExample ? (
+            <a
+              href={linkExample}
+              target="_blank"
+              class={`portfoly-link portfoly-link--reverse `}
+            >
+              Ver proyecto
+              <i class="bx bx-link-external" />
+            </a>
+          ) : (
+            <p class={`portfoly-link portfoly-link-hide`} />
+          )
+        }
         <a href={linkRepository} target="_blank" class="portfoly-link"
           ><i class="bx bxl-github"></i>Ver Codigo</a
         >
@@ -70,6 +78,9 @@ const imgPath = `../assets/images/projects/${img}`;
   }
   .portafolyItem-img {
     border-radius: 10px 10px 0 0;
+  }
+  .portfoly-link-hide {
+    visibility: hidden;
   }
   .portafolyItem-item:hover .portafolyItem-info {
     bottom: 0;
