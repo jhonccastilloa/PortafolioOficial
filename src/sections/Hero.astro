@@ -52,7 +52,7 @@ const ICONS = [
           <li class="hero__main-icons" title={title}>
             <a href={link} target="_blank" rel="noopener noreferrer" aria-label={title}>
               {img ? (
-                <img class="img__icon" src={img} alt={title} />
+                <img class="hero__icon" src={img} alt={title} />
               ) : (
                 <i class={`bx ${icon} hero__main-icon`} />
               )}
@@ -86,7 +86,7 @@ const ICONS = [
     width: 12.5rem;
     transform: translate(-50%, -50%);
   }
-  .img__icon {
+  .hero__icon {
     width: var(--text-xl);
     color: var(--text-color);
   }

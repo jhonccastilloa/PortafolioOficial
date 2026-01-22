@@ -12,7 +12,7 @@ const studies = [
 ];
 ---
 
-<div class="study">
+<div class="studies">
   {
     studies.map(({ date, img, title }) => (
       <StudyItem date={date} img={img} title={title} />
@@ -21,7 +21,7 @@ const studies = [
 </div>
 
 <style>
-  .study {
+  .studies {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +29,7 @@ const studies = [
     padding: var(--padding-vertical);
   }
   @media (min-width: 768px) {
-    .study {
+    .studies {
       flex-direction: row;
       justify-content: space-evenly;
     }

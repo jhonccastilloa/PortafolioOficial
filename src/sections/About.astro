@@ -3,46 +3,46 @@ import { Image } from "astro:assets";
 import programing from "../assets/images/programing.png";
 ---
 
-<div class="section__about-main">
-  <div class="section__texts">
-    <p class="section__paragraph">
+<div class="about__main">
+  <div class="about__texts">
+    <p class="about__paragraph">
       Desarrollador full stack con bachiller en ingeniería de sistemas y una
       gran pasión por el desarrollo web. Tengo gran experiencia y conocimientos
       que me permiten desarrollar aplicaciones web o movil personalizadas y
       eficientes que se adaptan a las necesidades de los usuarios.
     </p>
-    <p class="section__paragraph">
+    <p class="about__paragraph">
       Siempre estoy en busca de nuevo retos y oportunidades que me permitan
       crecer profesionalemente. Si estás buscando un desarrollador web/movil
       apasionado y comprometido, estoy aquí para ayudarte a alcanzar tus
       objetivos con soluciones innovadoras y eficientes.
     </p>
   </div>
-  <figure class="section__figure">
+  <figure class="about__figure">
     <Image
       src={programing}
-      class="section__about-img img-float"
+      class="about__img img-float"
       alt="logo de programacion"
     />
   </figure>
 </div>
 
 <style>
-  .section__about-main {
+  .about__main {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: var(--padding-vertical);
   }
-  .section__about-img {
+  .about__img {
     width: 100%;
   }
-  .section__texts {
+  .about__texts {
     flex: 1;
   }
-  .section__paragraph {
-    line-height: 1.5;
+  .about__paragraph {
+    line-height:1.5;
     font-size: var(--text-base);
     color: var(--text-color);
     padding: 0 0 15px 0;
@@ -50,18 +50,18 @@ import programing from "../assets/images/programing.png";
       color 300ms ease,
       text-shadow 300ms ease;
   }
-  .section__paragraph:hover {
+  .about__paragraph:hover {
     color: var(--text-color);
     text-shadow: 0 0 10px var(--text-color);
   }
-  .section__figure {
+  .about__figure {
     width: 16rem;
   }
   @media (min-width: 768px) {
-    .section__about-main {
+    .about__main {
       flex-direction: row;
     }
-    .section__paragraph {
+    .about__paragraph {
       font-size: var(--text-xl);
     }
   }

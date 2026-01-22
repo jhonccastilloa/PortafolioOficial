@@ -10,18 +10,18 @@ const navItems = [
 ];
 ---
 
-<nav class="hero__nav-container">
-  <div class="hero__nav">
-    <figure class="hero__img">
-      <img class="hero__vector" src="/vectores/Decor.svg" alt="" />
+<nav class="header__nav-container">
+  <div class="header__nav">
+    <figure class="header__logo">
+      <img class="header__logo-vector" src="/vectores/Decor.svg" alt="" />
     </figure>
-    <div class="hero__menu">
-      <a class="btn__close"><i class="bx bx-x"></i></a>
-      <ul class="hero__list">
+    <div class="header__menu">
+      <a class="header__menu-btn--close"><i class="bx bx-x"></i></a>
+      <ul class="header__nav-list">
         {
           navItems.map(({ href, label }) => (
-            <li class="hero__item">
-              <a class="nav__cta " href={href}>
+            <li class="header__nav-item">
+              <a class="header__nav-link " href={href}>
                 {label}
               </a>
             </li>
@@ -29,20 +29,20 @@ const navItems = [
         }
       </ul>
     </div>
-    <a class="btn-open"><i class="bx bx-menu"></i></a>
+    <a class="header__menu-btn--open"><i class="bx bx-menu"></i></a>
   </div>
 </nav>
 
 <script>
-  const btnMenu = document.querySelector(".btn-open");
-  const btnClose = document.querySelector(".btn__close");
-  const menu = document.querySelector(".hero__menu");
+  const btnMenu = document.querySelector(".header__menu-btn--open");
+  const btnClose = document.querySelector(".header__menu-btn--close");
+  const menu = document.querySelector(".header__menu");
 
   btnMenu?.addEventListener("click", () => {
-    menu?.classList.add("show--menu");
+    menu?.classList.add("header__menu--open");
   });
   btnClose?.addEventListener("click", () => {
-    menu?.classList.remove("show--menu");
+    menu?.classList.remove("header__menu--open");
   });
 
   //------//
@@ -51,18 +51,18 @@ const navItems = [
     (entries) => {
       entries.forEach((entry) => {
         const id = entry.target.getAttribute("id");
-        const menuLink = document.querySelector(`.hero__list a[href="#${id}"]`);
+        const menuLink = document.querySelector(`.header__nav-list a[href="#${id}"]`);
         if (entry.isIntersecting) {
-          let current = document.querySelector(".active");
-          current?.classList.remove("active");
-          menuLink?.classList.add("active");
+          let current = document.querySelector(".header__nav-link--active");
+          current?.classList.remove("header__nav-link--active");
+          menuLink?.classList.add("header__nav-link--active");
         }
       });
     },
     { rootMargin: "-35% 0px -65% 0px" },
   );
 
-  const sections = document.querySelectorAll(".nav__cta");
+  const sections = document.querySelectorAll(".header__nav-link");
   for (let i = 0; i < sections.length; i++) {
     const hash = sections[i].getAttribute("href");
     if (hash) {
@@ -75,20 +75,20 @@ const navItems = [
 </script>
 
 <style>
-  .nav__cta {
+  .header__nav-link {
     color: var(--text-color);
     font-size: var(--text-base);
   }
-  .hero__item {
+  .header__nav-item {
     margin-bottom: 16px;
     font-weight: 600;
   }
-  .hero__nav-container {
+  .header__nav-container {
     width: 90%;
     max-width: 1380px;
     margin: auto;
   }
-  .hero__nav {
+  .header__nav {
     top: 0;
     right: 0;
     z-index: var(--z-fixed);
@@ -97,22 +97,22 @@ const navItems = [
     align-items: flex-start;
     padding: 2rem 0 0.5rem;
   }
-  .hero__img {
+  .header__logo {
     width: 100%;
     height: auto;
   }
-  .hero__vector {
+  .header__logo-vector {
     width: 80px;
     height: auto;
   }
-  .hero__list {
+  .header__nav-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 1rem;
   }
 
-  .btn__close {
+  .header__menu-btn--close {
     position: absolute;
     right: 16px;
     top: 16px;
@@ -124,7 +124,7 @@ const navItems = [
     justify-content: center;
     align-items: center;
   }
-  .btn-open {
+  .header__menu-btn--open {
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -137,17 +137,17 @@ const navItems = [
     /* padding: 10px; */
   }
 
-  .nav__cta:hover {
+  .header__nav-link:hover {
     color: var(--primary-color);
     border-bottom: 1.5px solid var(--primary-color);
   }
-  .active {
+  .header__nav-link--active {
     color: var(--primary-color);
     border-bottom: 1.5px solid var(--primary-color);
   }
 
   @media (max-width: 768px) {
-    .hero__menu {
+    .header__menu {
       position: fixed;
       top: -100%;
       left: 0;
@@ -159,34 +159,34 @@ const navItems = [
       border-bottom: 2px solid var(--primary-color);
       border-radius: 0 0 22px 22px;
     }
-    .show--menu {
+    .header__menu--open {
       top: 0;
     }
   }
   @media (min-width: 768px) {
-    .section__about-main {
+    .about__main {
       flex-direction: row;
     }
 
-    .hero__menu {
+    .header__menu {
       align-items: flex-end;
       position: fixed;
       z-index: var(--z-fixed);
       background-color: var(--background-color);
       border-radius: 23px;
     }
-    .btn__close {
+    .header__menu-btn--close {
       display: none;
     }
-    .hero__vector {
+    .header__logo-vector {
       width: 150px;
       height: auto;
     }
 
-    .btn-open {
+    .header__menu-btn--open {
       display: none;
     }
-    .hero__list {
+    .header__nav-list {
       height: 40px;
       flex-direction: row;
       justify-content: flex-end;
@@ -197,7 +197,7 @@ const navItems = [
       font-size: 14px;
       padding: 0 15px;
     }
-    .hero__item {
+    .header__nav-item {
       margin: 0;
     }
   }

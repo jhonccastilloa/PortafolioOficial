@@ -10,20 +10,20 @@ const { subtitle, skills } = Astro.props;
 ---
 
 <>
-  <h3 class="sub-subtitle">{subtitle}</h3>
-  <div class="section__rates-container">
+  <h3 class="skill__subtitle">{subtitle}</h3>
+  <div class="skill__container">
     {skills.map((skill) => <SkillItem {...skill} />)}
   </div>
 </>
 
 <style>
-  .sub-subtitle {
+  .skill__subtitle {
     color: var(--text-color);
     font-weight: 600;
     font-size: var(--text-md);
     margin-left: 3rem;
   }
-  .section__rates-container {
+  .skill__container {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -31,7 +31,7 @@ const { subtitle, skills } = Astro.props;
     padding: var(--padding-vertical);
   }
   @media (min-width: 768px) {
-    .section__rates-container {
+    .skill__container {
       justify-content: center;
       gap: 45px;
     }
