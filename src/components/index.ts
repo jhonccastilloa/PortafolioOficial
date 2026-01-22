@@ -3,6 +3,7 @@ export { default as SectionContainer } from "./SectionContainer.astro";
 export { default as SkillItem } from "./SkillItem.astro";
 export { default as SkillRate } from "./SkillRate.astro";
 export { default as StudyItem } from "./StudyItem.astro";
+export { default as ExperienceItem } from "./ExperienceItem.astro";
 export { default as ImgAnimation } from "./ImgAnimation.astro";
 export { default as ServiceItem } from "./ServiceItem.astro";
 export { default as PortfolioItem } from "./PortfolioItem.astro";

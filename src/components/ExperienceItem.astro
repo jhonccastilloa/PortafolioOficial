@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  img?: ImageMetadata;
+  company: string;
+  position: string;
+  period: string;
+  description: string[];
+  technologies?: string[];
+}
+const { company, period, position, img, description, technologies } = Astro.props;
+---
+
+<div class="experienceItem">
+  {img && (
+    <figure class="experienceItem-figure">
+      <Image class="img-float" src={img} alt={company} loading="lazy" />
+    </figure>
+  )}
+  <h3 class="experienceItem-subtitle">{company}</h3>
+  <p class="experienceItem-position">{position}</p>
+  <p class="experienceItem-paragraph">{period}</p>
+  <ul class="experienceItem-description">
+    {description.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+  {technologies && technologies.length > 0 && (
+    <div class="experienceItem-technologies">
+      <strong>Tecnologías:</strong> {technologies.join(", ")}
+    </div>
+  )}
+</div>
+
+<style>
+  .experienceItem {
+    margin-bottom: 3.2rem;
+    width: 20rem;
+  }
+  .experienceItem-subtitle {
+    color: var(--primary-color);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    padding: 10px 0 5px;
+  }
+  .experienceItem-position {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 5px 0;
+  }
+  .experienceItem-paragraph {
+    color: var(--text-color-secondary);
+    font-size: var(--text-base);
+    margin-bottom: 10px;
+  }
+  .experienceItem-description {
+    color: var(--text-color);
+    font-size: var(--text-sm);
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  .experienceItem-description li {
+    margin-bottom: 5px;
+  }
+  .experienceItem-technologies {
+    color: var(--text-color-secondary);
+    font-size: var(--text-xs);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .experienceItem-technologies strong {
+    color: var(--primary-color);
+  }
+  .experienceItem-figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 100%;
+    margin: 0 auto;
+    filter: grayscale(100%);
+    transition:
+      transform 0.3s ease,
+      filter 0.5s ease;
+  }
+  .experienceItem-figure:hover {
+    transform: scale(1.05);
+    filter: grayscale(0);
+  }
+  .img-float {
+    max-height: 100px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+</style>

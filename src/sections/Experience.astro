@@ -1,0 +1,92 @@
+---
+import { ExperienceItem } from "../components";
+
+const experiences = [
+  {
+    company: "Dirección Regional de Educación Puno",
+    position: "Practicante en el Área de Informatica",
+    period: "2021 - 2022",
+    description: [
+      "Administración de los sistemas informáticos de la entidad",
+      "Desarrollo de un aplicativo web de traslados de datos JSON a Excel",
+      "Desarrollo de un sistema web de consulta de registro y visualización de tÍtulos pedagógicos y tecnológicos",
+      "Desarrollo de un sistema web para la publicación de convocatorias CAS",
+      "-Apoyo administrativo en el registro, organización y elaboración de documentos e informes",
+      "Atención a consultas o requerimientos de información de clientes",
+    ],
+    technologies: ["Bootstrap", "PHP", "MySQL", "CSS", "JavaScript", "HTML"],
+  },
+  {
+    company: "Freelance / Proyectos Independientes",
+    position: "Desarrollador Full Stack",
+    period: "2022 - Presente",
+    description: [
+      "Desarrollo de un sistema administrativo para el control, organización y seguimiento de expedientes técnicos para empresa de ingeniería",
+      "Implementación de plataforma e-commerce para tienda de tecnología, integrando un módulo especializado de gestión postventa y garantías",
+      "Desarrollo de un sistema de comercio electrónico para la venta y catálogo de productos de energía renovable y termas solares",
+      "Diseño y creación de una aplicación para la gestión integral de préstamos",
+    ],
+    technologies: [
+      "React JS",
+      "Node JS",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Firebase",
+      "React Native",
+      "Express JS",
+    ],
+  },
+  {
+    company: "Bantotal",
+    position: "Desarrollador Mobile y Web Frontend",
+    period: "2023 - Presente",
+    description: [
+      "Background en banca/finanzas y core banking",
+      "Familiarizado con procesos bancarios: cuentas, créditos, pagos, contabilidad, regulaciones",
+      "Desarrollo de sistemas complejos y críticos donde estabilidad y exactitud son fundamentales",
+      "Análisis y desarrollo de requerimientos de Banca Digital (Web, Mobile) para diferentes entidades bancarias",
+    ],
+    technologies: [
+      "Angular",
+      "React JS",
+      "React Native",
+      "Node JS",
+      "CSS",
+      "JavaScript",
+      "HTML",
+      "Redux",
+    ],
+  },
+];
+---
+
+<div class="experiences">
+  {
+    experiences.map(
+      ({ company, position, period, description, technologies }) => (
+        <ExperienceItem
+          company={company}
+          position={position}
+          period={period}
+          description={description}
+          technologies={technologies}
+        />
+      ),
+    )
+  }
+</div>
+
+<style>
+  .experiences {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-vertical);
+  }
+  @media (min-width: 768px) {
+    .experiences {
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  }
+</style>

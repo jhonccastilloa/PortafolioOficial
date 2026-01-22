@@ -5,6 +5,7 @@ import {
   Hero,
   Skill,
   Study,
+  Experience,
   Service,
   Portfolio,
   Contact,
@@ -30,15 +31,19 @@ import Layout from "../layouts/Layout.astro";
       <h2 class="page__subtitle">ESTUDIOS</h2>
       <Study />
     </SectionContainer>
-    <SectionContainer id="service" isAlter>
+    <SectionContainer id="experience" isAlter>
+      <h2 class="page__subtitle">EXPERIENCIA LABORAL</h2>
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="service">
       <h2 class="page__subtitle">SERVICIOS</h2>
       <Service />
     </SectionContainer>
-    <SectionContainer id="portfolio">
+    <SectionContainer id="portfolio" isAlter>
       <h2 class="page__subtitle">MI PORTAFOLIO</h2>
       <Portfolio />
     </SectionContainer>
-    <SectionContainer id="contact" isAlter>
+    <SectionContainer id="contact">
       <h2 class="page__subtitle">CONTACTO</h2>
       <Contact />
     </SectionContainer>
