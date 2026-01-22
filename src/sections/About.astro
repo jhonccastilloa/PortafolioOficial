@@ -21,7 +21,7 @@ import programing from "../assets/images/programing.png";
   <figure class="section__figure">
     <Image
       src={programing}
-      class="section__about-img"
+      class="section__about-img img-float"
       alt="logo de programacion"
     />
   </figure>
@@ -36,15 +36,6 @@ import programing from "../assets/images/programing.png";
     padding: var(--padding-vertical);
   }
   .section__about-img {
-    animation: animation 3s infinite;
-    -webkit-animation: animation 3s infinite;
-    -webkit-filter: drop-shadow(0 10px 10px var(--surface-color));
-    filter: drop-shadow(0 10px 10px var(--surface-color));
-    transition: -webkit-transform 0.4s ease-in-out;
-    transition: transform 0.4s ease-in-out;
-    transition:
-      transform 0.4s ease-in-out,
-      -webkit-transform 0.4s ease-in-out;
     width: 100%;
   }
   .section__texts {

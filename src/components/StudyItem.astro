@@ -1,6 +1,5 @@
 ---
-import { Image } from 'astro:assets';
-import "../styles/animations.css";
+import { Image } from "astro:assets";
 
 interface Props {
   img: ImageMetadata;
@@ -12,7 +11,7 @@ const { date, img, title } = Astro.props;
 
 <div class="studyItem">
   <figure class="studyItem-figure">
-    <Image class="img-float" src={img} alt={title} loading="lazy"/>
+    <Image class="img-float" src={img} alt={title} loading="lazy" />
   </figure>
   <h3 class="studyItem-subtitle">{title}</h3>
   <p class="studyItem-paragraph">{date}</p>
@@ -46,5 +45,4 @@ const { date, img, title } = Astro.props;
     transform: scale(1.1);
     filter: grayscale(0);
   }
-
 </style>

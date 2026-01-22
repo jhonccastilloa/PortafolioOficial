@@ -1,7 +1,7 @@
 ---
 import { ContactItem } from "../components";
 
-const contacs = [
+const contacts = [
   { href: "tel:+51941882754", icon: "bxs-phone", text: "Call me" },
   {
     href: "mailto:jhoncarloscastilloatencio@gmail.com",
@@ -28,7 +28,7 @@ const contacs = [
 ---
 
 <div class="contact">
-  {contacs.map((contact) => <ContactItem {...contact} />)}
+  {contacts.map((contact) => <ContactItem {...contact} />)}
 </div>
 
 <style>
