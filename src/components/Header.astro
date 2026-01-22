@@ -5,7 +5,7 @@ const navItems = [
   { label: "Habilidades", href: "#skill" },
   { label: "Estudios", href: "#study" },
   { label: "Servicios", href: "#service" },
-  { label: "Mi portafolio", href: "#portafoly" },
+  { label: "Mi portafolio", href: "#portfolio" },
   { label: "contacto", href: "#contact" },
 ];
 ---
@@ -39,7 +39,6 @@ const navItems = [
   const menu = document.querySelector(".hero__menu");
 
   btnMenu?.addEventListener("click", () => {
-    console.log("me hice clikc");
     menu?.classList.add("show--menu");
   });
   btnClose?.addEventListener("click", () => {
@@ -60,7 +59,7 @@ const navItems = [
         }
       });
     },
-    { rootMargin: "-35% 0px -65% 0px" }
+    { rootMargin: "-35% 0px -65% 0px" },
   );
 
   const sections = document.querySelectorAll(".nav__cta");
@@ -138,10 +137,6 @@ const navItems = [
     /* padding: 10px; */
   }
 
-  .nav__cta {
-    color: var(--text-color);
-    font-size: var(--text-base);
-  }
   .nav__cta:hover {
     color: var(--primary-color);
     border-bottom: 1.5px solid var(--primary-color);

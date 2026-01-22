@@ -6,7 +6,7 @@ import {
   Skill,
   Study,
   Service,
-  Portafoly,
+  Portfolio,
   Contact,
 } from "../sections";
 import { SectionContainer } from "../components";
@@ -34,9 +34,9 @@ import Layout from "../layouts/Layout.astro";
       <h2 class="subtitle">SERVICIOS</h2>
       <Service />
     </SectionContainer>
-    <SectionContainer id="portafoly">
+    <SectionContainer id="portfolio">
       <h2 class="subtitle">MI PORTAFOLIO</h2>
-      <Portafoly />
+      <Portfolio />
     </SectionContainer>
     <SectionContainer id="contact" isAlter>
       <h2 class="subtitle">CONTACTO</h2>
@@ -46,12 +46,6 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-  .container {
-    padding-top: 40px;
-    width: 90%;
-    max-width: 1380px;
-    margin: auto;
-  }
   .subtitle {
     font-size: var(--text-2xl);
     color: var(--primary-color);

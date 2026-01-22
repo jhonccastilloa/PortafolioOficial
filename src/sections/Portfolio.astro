@@ -1,5 +1,5 @@
 ---
-import { PortafolyItem } from "../components";
+import { PortfolioItem } from "../components";
 
 const projects = [
   {
@@ -137,16 +137,16 @@ const projects = [
 ];
 ---
 
-<div class="portafoly">
-  {projects.map((project) => <PortafolyItem {...project} />)}
+<div class="portfolio">
+  {projects.map((project) => <PortfolioItem {...project} />)}
 </div>
 
 <style>
-  .portafoly {
+  .portfolio {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
-    padding: var(--pading-vertical);
+    padding: var(--padding-vertical);
   }
 </style>

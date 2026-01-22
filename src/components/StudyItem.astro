@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import "../styles/animations.css";
 
 interface Props {
   img: ImageMetadata;
@@ -11,7 +12,7 @@ const { date, img, title } = Astro.props;
 
 <div class="studyItem">
   <figure class="studyItem-figure">
-    <Image class="studyItem-img" src={img} alt={title} loading="lazy"/>
+    <Image class="img-float" src={img} alt={title} loading="lazy"/>
   </figure>
   <h3 class="studyItem-subtitle">{title}</h3>
   <p class="studyItem-paragraph">{date}</p>
@@ -45,41 +46,5 @@ const { date, img, title } = Astro.props;
     transform: scale(1.1);
     filter: grayscale(0);
   }
-  .studyItem-img {
-    animation: animation 3s infinite;
-    -webkit-animation: animation 3s infinite;
-    -webkit-filter: drop-shadow(0 10px 10px var(--surface-color));
-    filter: drop-shadow(0 10px 10px var(--surface-color));
-    transition: -webkit-transform 0.4s ease-in-out;
-    transition: transform 0.4s ease-in-out;
-    transition:
-      transform 0.4s ease-in-out,
-      -webkit-transform 0.4s ease-in-out;
-    width: 100%;
-  }
-  @keyframes animation {
-    0% {
-      transform: translateY(0px);
-      -webkit-transform: translateY(0px);
-      -moz-transform: translateY(0px);
-      -ms-transform: translateY(0px);
-      -o-transform: translateY(0px);
-    }
 
-    50% {
-      transform: translateY(-10px);
-      -webkit-transform: translateY(-10px);
-      -moz-transform: translateY(-10px);
-      -ms-transform: translateY(-10px);
-      -o-transform: translateY(-10px);
-    }
-
-    100% {
-      transform: translateY(0px);
-      -webkit-transform: translateY(0px);
-      -moz-transform: translateY(0px);
-      -ms-transform: translateY(0px);
-      -o-transform: translateY(0px);
-    }
-  }
 </style>

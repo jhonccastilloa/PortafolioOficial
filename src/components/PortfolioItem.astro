@@ -14,31 +14,31 @@ interface Props {
 const { tecnologies, title, linkExample, linkRepository, img } = Astro.props;
 
 const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-  `../assets/images/projects/*.png`
+  `../assets/images/projects/*.png`,
 );
 const imgPath = `../assets/images/projects/${img}`;
 ---
 
-<div class="portafolyItem-item">
-  <figure class="portafolyItem-figure">
+<div class="portfolioItem-item">
+  <figure class="portfolioItem-figure">
     <Image
       alt={title}
       src={projectImages[imgPath]() || defaultImage}
-      class="portafolyItem-img"
+      class="portfolioItem-img"
     />
 
-    <div class="portafolyItem-info">
-      <h4 class="portafolyItem-title">Hecho con:</h4>
-      <ul class="portafolyItem-icon">
+    <div class="portfolioItem-info">
+      <h4 class="portfolioItem-title">Hecho con:</h4>
+      <ul class="portfolioItem-icon">
         {
           tecnologies.map(({ name, icon }) => (
             <li>
-              <i class={`portafolyItem-tecnology bx ${icon}`} title={name} />
+              <i class={`portfolioItem-tecnology bx ${icon}`} title={name} />
             </li>
           ))
         }
       </ul>
-      <div class="portafolyItem-buttons">
+      <div class="portfolioItem-buttons">
         {
           linkExample ? (
             <a
@@ -59,38 +59,38 @@ const imgPath = `../assets/images/projects/${img}`;
       </div>
     </div>
   </figure>
-  <h3 class="portafolyItem-subtitle">{title}</h3>
+  <h3 class="portfolioItem-subtitle">{title}</h3>
 </div>
 
 <style>
-  .portafolyItem-item {
+  .portfolioItem-item {
     padding-bottom: 45px;
     background-color: var(--background-color-secondary);
     box-shadow: 0 0 15px 2px #00000090;
     border-radius: 10px;
   }
-  .portafolyItem-figure {
+  .portfolioItem-figure {
     position: relative;
     max-width: 325px;
     height: 282px;
     overflow: hidden;
     color: var(--text-color);
   }
-  .portafolyItem-img {
+  .portfolioItem-img {
     border-radius: 10px 10px 0 0;
   }
   .portfoly-link-hide {
     visibility: hidden;
   }
-  .portafolyItem-item:hover .portafolyItem-info {
+  .portfolioItem-item:hover .portfolioItem-info {
     bottom: 0;
     transition: bottom 500ms ease;
   }
-  .portafolyItem-item:hover .portafolyItem-img {
+  .portfolioItem-item:hover .portfolioItem-img {
     filter: blur(4px);
     transition: filter 500ms ease;
   }
-  .portafolyItem-info {
+  .portfolioItem-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,27 +104,23 @@ const imgPath = `../assets/images/projects/${img}`;
     bottom: -100%;
     transition: bottom 500ms ease;
   }
-  .portafolyItem-title {
+  .portfolioItem-title {
     font-size: var(--text-2xl);
   }
-  .portafolyItem-icon {
+  .portfolioItem-icon {
     display: flex;
     justify-content: space-evenly;
   }
-  .portafolyItem-tecnology {
+  .portfolioItem-tecnology {
     font-size: 2.5rem;
     transition: transform 500ms ease;
   }
-  .portafolyItem-tecnology:hover {
+  .portfolioItem-tecnology:hover {
     transform: rotate(9deg);
     transition: transform 500ms ease;
   }
-  .portafolyItem-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  .portafolyItem-buttons {
+
+  .portfolioItem-buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -159,7 +155,7 @@ const imgPath = `../assets/images/projects/${img}`;
       box-shadow 0.5s ease,
       transform 0.5s ease;
   }
-  .portafolyItem-subtitle {
+  .portfolioItem-subtitle {
     margin-top: 25px;
     text-align: center;
     color: var(--text-color);
