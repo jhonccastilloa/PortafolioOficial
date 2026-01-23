@@ -16,6 +16,8 @@ const { alt, img, class: className, ...rest } = Astro.props;
   src={img?.() || defaultImage}
   class={`img-float ${className}`}
   alt={alt}
+  loading="lazy"
+  decoding="async"
   {...rest}
 />
 

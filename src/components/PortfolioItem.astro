@@ -25,6 +25,8 @@ const imgPath = `../assets/images/projects/${img}`;
       alt={title}
       src={projectImages[imgPath]() || defaultImage}
       class="portfolioItem-img"
+      loading="lazy"
+      decoding="async"
     />
 
     <div class="portfolioItem-info">

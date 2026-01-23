@@ -22,8 +22,16 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+      />
+    </noscript>
     <meta
       name="google-site-verification"
       content="4dBRqESiBG8GqQENFBcV8taPmFWtVLsEg8apfm3rXqM"
@@ -80,11 +88,21 @@ const { title } = Astro.props;
       type="image/x-icon"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preload" as="image" href="/vectores/Decor.svg" />
+    <link rel="preload" as="image" href="/vectores/Vector.svg" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
