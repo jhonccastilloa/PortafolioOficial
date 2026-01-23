@@ -34,7 +34,7 @@ const navItems = [
   </div>
 </nav>
 
-  <script is:inline>
+<script>
   const btnMenu = document.querySelector(".header__menu-btn--open");
   const btnClose = document.querySelector(".header__menu-btn--close");
   const menu = document.querySelector(".header__menu");
@@ -52,7 +52,9 @@ const navItems = [
     (entries) => {
       entries.forEach((entry) => {
         const id = entry.target.getAttribute("id");
-        const menuLink = document.querySelector(`.header__nav-list a[href="#${id}"]`);
+        const menuLink = document.querySelector(
+          `.header__nav-list a[href="#${id}"]`,
+        );
         if (entry.isIntersecting) {
           let current = document.querySelector(".header__nav-link--active");
           current?.classList.remove("header__nav-link--active");
