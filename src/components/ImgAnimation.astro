@@ -18,6 +18,9 @@ const { alt, img, class: className, ...rest } = Astro.props;
   alt={alt}
   loading="lazy"
   decoding="async"
+  widths={[200, 256, 300]}
+  sizes="(max-width: 768px) 200px, (max-width: 1024px) 256px, 300px"
+  format="webp"
   {...rest}
 />
 

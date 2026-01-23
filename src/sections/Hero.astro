@@ -32,12 +32,20 @@ const ICONS = [
       src={photoPrincipalMini}
       alt="Fotografia de mi persona"
       loading="eager"
+      widths={[200, 300, 400]}
+      sizes="(max-width: 768px) 200px, (max-width: 1024px) 300px, 400px"
+      format="webp"
+      decoding="async"
      />
     <Image
       class="hero__main-img-web"
       src={photoPrincipal}
       alt="Fotografia de mi persona"
       loading="eager"
+      widths={[400, 496, 600]}
+      sizes="(max-width: 1024px) 400px, 496px"
+      format="webp"
+      decoding="async"
     />
   </div>
   <div class="hero__main-texts">
