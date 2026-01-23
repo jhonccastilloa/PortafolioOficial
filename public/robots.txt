@@ -1,6 +1,0 @@
-# robots.txt para jcastilloa.dhyrium.website
-
-User-agent: *
-Allow: /
-
-Sitemap: https://jcastilloa.dhyrium.website/sitemap.xml
