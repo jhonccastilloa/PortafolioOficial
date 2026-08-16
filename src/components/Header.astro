@@ -11,13 +11,19 @@ const navItems = [
 ];
 ---
 
-<nav class="header__nav-container">
+<nav class="header__nav-container" aria-label="Navegación principal">
   <div class="header__nav">
     <figure class="header__logo">
       <img class="header__logo-vector" src="/vectores/Decor.svg" alt="" />
     </figure>
-    <div class="header__menu">
-      <a class="header__menu-btn--close"><i class="bx bx-x"></i></a>
+    <div id="site-menu" class="header__menu">
+      <button
+        type="button"
+        class="header__menu-btn--close"
+        aria-label="Cerrar menú"
+      >
+        <i class="bx bx-x" aria-hidden="true"></i>
+      </button>
       <ul class="header__nav-list">
         {
           navItems.map(({ href, label }) => (
@@ -30,20 +36,49 @@ const navItems = [
         }
       </ul>
     </div>
-    <a class="header__menu-btn--open"><i class="bx bx-menu"></i></a>
+    <button
+      type="button"
+      class="header__menu-btn--open"
+      aria-label="Abrir menú"
+      aria-controls="site-menu"
+      aria-expanded="false"
+    >
+      <i class="bx bx-menu" aria-hidden="true"></i>
+    </button>
   </div>
 </nav>
 
 <script>
-  const btnMenu = document.querySelector(".header__menu-btn--open");
-  const btnClose = document.querySelector(".header__menu-btn--close");
-  const menu = document.querySelector(".header__menu");
+  const btnMenu = document.querySelector<HTMLButtonElement>(
+    ".header__menu-btn--open",
+  );
+  const btnClose = document.querySelector<HTMLButtonElement>(
+    ".header__menu-btn--close",
+  );
+  const menu = document.querySelector<HTMLElement>(".header__menu");
+
+  const setMenuOpen = (isOpen: boolean) => {
+    menu?.classList.toggle("header__menu--open", isOpen);
+    btnMenu?.setAttribute("aria-expanded", String(isOpen));
+  };
 
   btnMenu?.addEventListener("click", () => {
-    menu?.classList.add("header__menu--open");
+    setMenuOpen(true);
   });
   btnClose?.addEventListener("click", () => {
-    menu?.classList.remove("header__menu--open");
+    setMenuOpen(false);
+    btnMenu?.focus();
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>(".header__nav-link").forEach((link) => {
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+      btnMenu?.focus();
+    }
   });
 
   //------//
@@ -124,6 +159,11 @@ const navItems = [
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 0;
+    color: var(--text-color);
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
   }
   .header__menu-btn--open {
     width: 2rem;
@@ -135,6 +175,11 @@ const navItems = [
     z-index: 99;
     background-color: var(--background-color-secondary);
     border-radius: 23px;
+    border: 0;
+    color: var(--text-color);
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
     /* padding: 10px; */
   }
 
