@@ -1,17 +1,17 @@
 ---
 import { Image } from "astro:assets";
-import type { Tecnology } from "../interfaces/types";
+import type { Technology } from "../interfaces/types";
 import defaultImage from "../assets/images/default-image.avif";
 
 interface Props {
   title: string;
-  tecnologies: Tecnology[];
+  technologies: Technology[];
   linkRepository: string;
   linkExample?: string;
   img: string;
 }
 
-const { tecnologies, title, linkExample, linkRepository, img } = Astro.props;
+const { technologies, title, linkExample, linkRepository, img } = Astro.props;
 
 const projectImages = import.meta.glob<{ default: ImageMetadata }>(
   `../assets/images/projects/*.png`,
@@ -33,9 +33,9 @@ const imgPath = `../assets/images/projects/${img}`;
       <h4 class="portfolioItem-title">Hecho con:</h4>
       <ul class="portfolioItem-icon">
         {
-          tecnologies.map(({ name, icon }) => (
+          technologies.map(({ name, icon }) => (
             <li>
-              <i class={`portfolioItem-tecnology bx ${icon}`} title={name} />
+              <i class={`portfolioItem-technology bx ${icon}`} title={name} />
             </li>
           ))
         }
@@ -56,7 +56,7 @@ const imgPath = `../assets/images/projects/${img}`;
           )
         }
         <a href={linkRepository} target="_blank" class="portfolio-link"
-          ><i class="bx bxl-github"></i>Ver Codigo</a
+          ><i class="bx bxl-github"></i>Ver código</a
         >
       </div>
     </div>
@@ -113,11 +113,11 @@ const imgPath = `../assets/images/projects/${img}`;
     display: flex;
     justify-content: space-evenly;
   }
-  .portfolioItem-tecnology {
+  .portfolioItem-technology {
     font-size: 2.5rem;
     transition: transform 500ms ease;
   }
-  .portfolioItem-tecnology:hover {
+  .portfolioItem-technology:hover {
     transform: rotate(9deg);
     transition: transform 500ms ease;
   }

@@ -4,7 +4,7 @@ export interface IconProps {
 }
 
 
-export interface Tecnology {
+export interface Technology {
   name: string;
   icon?: string;
   Icon?: (_props: IconProps) => any;
