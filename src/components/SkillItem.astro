@@ -6,7 +6,7 @@ const { icon, name, Icon } = Astro.props as Technology;
 
 <div class="skillItem__rates">
   <div class="skillItem__bar"></div>
-  <p class="skillItem__text-skill">
+  <div class="skillItem__text-skill">
     {
       Icon ? (
         <Icon class="skillItem__img-icon bx" color="var(--text-color)" />
@@ -14,8 +14,8 @@ const { icon, name, Icon } = Astro.props as Technology;
         <i class={`skillItem__text-skill-icon bx ${icon}`} />
       )
     }
-    <h3 class="skillItem__text">{name}</h3>
-  </p>
+  </div>
+  <h4 class="skillItem__text">{name}</h4>
 
   <style>
     .skillItem__rates {
