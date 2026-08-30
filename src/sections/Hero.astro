@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import photoPrincipal from '../assets/images/photo_principal.jpg';
-import photoPrincipalMini from '../assets/images/photo_principal_mini.png';
+import photoPrincipal from "../assets/images/photo_principal.jpg";
+import photoPrincipalMini from "../assets/images/photo_principal_mini.png";
 const ICONS = [
   {
     link: "https://github.com/jhonccastilloa",
@@ -26,7 +26,7 @@ const ICONS = [
     <figure class="hero__main-vector">
       <img src="/vectores/Vector.svg" alt="Vector" />
     </figure>
-   
+
     <Image
       class="hero__main-img"
       src={photoPrincipalMini}
@@ -36,7 +36,7 @@ const ICONS = [
       sizes="(max-width: 768px) 200px, (max-width: 1024px) 300px, 400px"
       format="webp"
       decoding="async"
-     />
+    />
     <Image
       class="hero__main-img-web"
       src={photoPrincipal}
@@ -58,7 +58,12 @@ const ICONS = [
       {
         ICONS.map(({ icon, title, link, img }) => (
           <li class="hero__main-icons" title={title}>
-            <a href={link} target="_blank" rel="noopener noreferrer" aria-label={title}>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={title}
+            >
               {img ? (
                 <img class="hero__icon" src={img} alt={title} />
               ) : (
@@ -80,7 +85,8 @@ const ICONS = [
 
 <style>
   .hero__main {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
+    min-height: calc(100svh - 178px);
   }
   .hero__main-figure {
     width: 100%;
