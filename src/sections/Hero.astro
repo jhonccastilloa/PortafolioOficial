@@ -85,8 +85,7 @@ const ICONS = [
 
 <style>
   .hero__main {
-    /* margin-top: 2rem; */
-    min-height: calc(100svh - 178px);
+    /* min-height: calc(100svh - 2rem - 40px); */
   }
   .hero__main-figure {
     width: 100%;
@@ -97,7 +96,7 @@ const ICONS = [
     top: 50%;
     left: 50%;
     height: auto;
-    width: 12.5rem;
+    width: 70%;
     transform: translate(-50%, -50%);
   }
   .hero__icon {
@@ -112,7 +111,7 @@ const ICONS = [
     position: relative;
     display: block;
     margin: 0 auto;
-    width: 12.5rem;
+    width: 70%;
   }
 
   .hero__subtitle {
@@ -191,6 +190,7 @@ const ICONS = [
     }
 
     .hero__main {
+      min-height: calc(100svh - 2rem - 40px);
       display: flex;
       align-items: center;
       justify-content: center;

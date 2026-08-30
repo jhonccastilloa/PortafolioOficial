@@ -70,9 +70,11 @@ const navItems = [
     btnMenu?.focus();
   });
 
-  document.querySelectorAll<HTMLAnchorElement>(".header__nav-link").forEach((link) => {
-    link.addEventListener("click", () => setMenuOpen(false));
-  });
+  document
+    .querySelectorAll<HTMLAnchorElement>(".header__nav-link")
+    .forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -87,7 +89,9 @@ const navItems = [
     (entries) => {
       entries.forEach((entry) => {
         const id = entry.target.getAttribute("id");
-        const menuLink = document.querySelector(`.header__nav-list a[href="#${id}"]`);
+        const menuLink = document.querySelector(
+          `.header__nav-list a[href="#${id}"]`,
+        );
         if (entry.isIntersecting) {
           let current = document.querySelector(".header__nav-link--active");
           current?.classList.remove("header__nav-link--active");
@@ -125,15 +129,13 @@ const navItems = [
     margin: auto;
   }
   .header__nav {
-    top: 0;
-    right: 0;
-    z-index: var(--z-fixed);
+    position: relative;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
-    padding: 2rem 0 0.5rem;
+    margin-top: 2rem;
   }
   .header__logo {
+    position: absolute;
     width: 100%;
     height: auto;
   }
