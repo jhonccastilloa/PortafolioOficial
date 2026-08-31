@@ -1,0 +1,50 @@
+---
+import type { Capability } from "../interfaces/types";
+
+const { title, description, technologies, primary = false } =
+  Astro.props as Capability;
+---
+
+<article class:list={["capabilityGroup", { "capabilityGroup--primary": primary }]}>
+  <h3 class="capabilityGroup__title">{title}</h3>
+  <p class="capabilityGroup__description">{description}</p>
+  <ul class="capabilityGroup__technologies">
+    {technologies.map((technology) => <li>{technology}</li>)}
+  </ul>
+</article>
+
+<style>
+  .capabilityGroup {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .capabilityGroup--primary {
+    border-color: var(--primary-color);
+  }
+
+  .capabilityGroup__title {
+    font-size: var(--text-xl);
+    letter-spacing: -0.025em;
+  }
+
+  .capabilityGroup__description {
+    margin-top: 0.75rem;
+    color: var(--text-color-secondary);
+  }
+
+  .capabilityGroup__technologies {
+    display: flex;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .capabilityGroup__technologies li {
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    color: var(--text-color-secondary);
+    font-size: var(--text-xs);
+  }
+</style>

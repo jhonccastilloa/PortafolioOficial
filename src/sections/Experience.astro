@@ -1,93 +1,71 @@
 ---
-import { ExperienceItem } from "../components";
+import { ExperienceItem, SectionHeading } from "../components";
+import type { Experience } from "../interfaces/types";
 
-const experiences = [
+const experiences: Experience[] = [
+  {
+    company: "Bantotal",
+    position: "Desarrollador Mobile · React Native",
+    period: "Feb 2023 — Actualidad",
+    description: [
+      "Desarrollo de funcionalidades mobile y frontend para productos de banca digital en Latinoamérica.",
+      "Implementación de autenticación, biometría, operaciones bancarias, seguridad móvil y correcciones de producción.",
+      "Participación en releases Android/iOS y automatización con Fastlane, GitLab CI, Firebase y TestFlight.",
+    ],
+    technologies: [
+      "React Native",
+      "React",
+      "Angular",
+      "TypeScript",
+      "Redux",
+    ],
+  },
+  {
+    company: "Desarrollo independiente",
+    position: "Frontend, Mobile & Full Stack Developer",
+    period: "Jul 2023 — Actualidad",
+    description: [
+      "Desarrollo y mantenimiento de una plataforma empresarial de expedientes técnicos utilizada en producción.",
+      "Diseño de DebtMate, una aplicación Android personal con API REST propia para gestionar deudas y cuentas compartidas.",
+      "Liderazgo técnico de una plantilla comercial y de posventa con frontend y backend modulares.",
+      "Operación de infraestructura self-hosted con Docker, Nginx, TLS, DNS, VPN, backups y recuperación de servicios.",
+    ],
+    technologies: [
+      "React Native",
+      "React",
+      "Express",
+      "Node.js",
+      "Prisma",
+      "PostgreSQL",
+      "Docker",
+      "Nginx",
+    ],
+  },
   {
     company: "Dirección Regional de Educación Puno",
     position: "Practicante en el Área de Informática",
-    period: "2021 - 2022",
+    period: "2021 — 2022",
     description: [
-      "Administración de los sistemas informáticos de la entidad",
-      "Desarrollo de un aplicativo web de traslados de datos JSON a Excel",
-      "Desarrollo de un sistema web de consulta de registro y visualización de títulos pedagógicos y tecnológicos",
-      "Desarrollo de un sistema web para la publicación de convocatorias CAS",
-      "Apoyo administrativo en el registro, organización y elaboración de documentos e informes",
-      "Atención a consultas o requerimientos de información de clientes",
+      "Desarrollo de sistemas web para consulta de títulos, convocatorias y procesamiento de información administrativa.",
+      "Soporte a sistemas internos, organización de datos y atención de requerimientos tecnológicos.",
     ],
-    technologies: ["Bootstrap", "PHP", "MySQL", "CSS", "JavaScript", "HTML"],
-  },
-  {
-    company: "Freelance / Proyectos Independientes",
-    position: "Desarrollador Full Stack",
-    period: "2022 - Presente",
-    description: [
-      "Desarrollo de un sistema administrativo para el control, organización y seguimiento de expedientes técnicos para empresa de ingeniería",
-      "Implementación de plataforma e-commerce para tienda de tecnología, integrando un módulo especializado de gestión postventa y garantías",
-      "Desarrollo de un sistema de comercio electrónico para la venta y catálogo de productos de energía renovable y termas solares",
-      "Diseño y creación de una aplicación para la gestión integral de préstamos",
-    ],
-    technologies: [
-      "React JS",
-      "Node JS",
-      "PostgreSQL",
-      "Tailwind CSS",
-      "Firebase",
-      "React Native",
-      "Express JS",
-    ],
-  },
-  {
-    company: "Bantotal",
-    position: "Desarrollador Mobile y Web Frontend",
-    period: "2023 - Presente",
-    description: [
-      "Background en banca/finanzas y core banking",
-      "Familiarizado con procesos bancarios: cuentas, créditos, pagos, contabilidad, regulaciones",
-      "Desarrollo de sistemas complejos y críticos donde estabilidad y exactitud son fundamentales",
-      "Análisis y desarrollo de requerimientos de Banca Digital (Web, Mobile) para diferentes entidades bancarias",
-    ],
-    technologies: [
-      "Angular",
-      "React JS",
-      "React Native",
-      "Node JS",
-      "CSS",
-      "JavaScript",
-      "HTML",
-      "Redux",
-    ],
+    technologies: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
   },
 ];
 ---
 
-<div class="experiences">
-  {
-    experiences.map(
-      ({ company, position, period, description, technologies }) => (
-        <ExperienceItem
-          company={company}
-          position={position}
-          period={period}
-          description={description}
-          technologies={technologies}
-        />
-      ),
-    )
-  }
+<SectionHeading
+  eyebrow="Trayectoria"
+  title="Experiencia profesional"
+  description="Una evolución desde sistemas web administrativos hacia productos financieros móviles y plataformas empresariales completas."
+/>
+
+<div class="experience">
+  {experiences.map((experience) => <ExperienceItem {...experience} />)}
 </div>
 
 <style>
-  .experiences {
-    display: flex;
-    flex-direction: column;
-    padding: var(--padding-vertical);
-  }
-  @media (min-width: 768px) {
-    .experiences {
-      flex-direction: row;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+  .experience {
+    border-bottom: 1px solid var(--border-color);
   }
 </style>

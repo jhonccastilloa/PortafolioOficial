@@ -2,60 +2,43 @@
 import "../styles/global.css";
 import {
   About,
-  Hero,
-  Skill,
-  Study,
-  Experience,
-  Service,
-  Portfolio,
   Contact,
+  Experience,
+  Hero,
+  Highlights,
+  Portfolio,
+  Skill,
 } from "../sections";
 import { SectionContainer } from "../components";
 import Layout from "../layouts/Layout.astro";
+
+const title = "Jhon Castillo | Frontend & Mobile Developer";
+const description =
+  "Frontend & Mobile Developer especializado en React, React Native, Angular y TypeScript, con experiencia en banca digital y productos empresariales.";
 ---
 
-<Layout title="Jhon Carlos Castillo Atencio | Full Stack Developer">
+<Layout {title} {description}>
   <main>
-    <SectionContainer id="home">
+    <SectionContainer id="home" isCompact>
       <Hero />
     </SectionContainer>
-    <SectionContainer id="about">
-      <h2 class="page__subtitle">acerca de mí</h2>
-      <About />
+    <SectionContainer id="highlights" isCompact>
+      <Highlights />
     </SectionContainer>
-    <SectionContainer id="skill" isAlter>
-      <h2 class="page__subtitle">habilidades</h2>
-      <Skill />
-    </SectionContainer>
-    <SectionContainer id="study">
-      <h2 class="page__subtitle">ESTUDIOS</h2>
-      <Study />
-    </SectionContainer>
-    <SectionContainer id="experience" isAlter>
-      <h2 class="page__subtitle">EXPERIENCIA LABORAL</h2>
-      <Experience />
-    </SectionContainer>
-    <SectionContainer id="service">
-      <h2 class="page__subtitle">SERVICIOS</h2>
-      <Service />
-    </SectionContainer>
-    <SectionContainer id="portfolio" isAlter>
-      <h2 class="page__subtitle">MI PORTAFOLIO</h2>
+    <SectionContainer id="work">
       <Portfolio />
     </SectionContainer>
+    <SectionContainer id="experience" isAlter>
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="capabilities">
+      <Skill />
+    </SectionContainer>
+    <SectionContainer id="about" isAlter>
+      <About />
+    </SectionContainer>
     <SectionContainer id="contact">
-      <h2 class="page__subtitle">CONTACTO</h2>
       <Contact />
     </SectionContainer>
   </main>
 </Layout>
-
-<style>
-  .page__subtitle {
-    font-size: var(--text-2xl);
-    color: var(--primary-color);
-    text-transform: uppercase;
-    padding: 30px 0 20px 10px;
-    text-align: center;
-  }
-</style>

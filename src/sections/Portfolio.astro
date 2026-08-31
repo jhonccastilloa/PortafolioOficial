@@ -1,141 +1,121 @@
 ---
-import { PortfolioItem } from "../components";
+import { CaseStudyItem, SectionHeading } from "../components";
+import type { CaseStudy } from "../interfaces/types";
 
-const projects = [
+const cases: CaseStudy[] = [
   {
-    title: "Ecommerce App",
-    technologies: [
-      { name: "TypeScript", icon: "bxl-typescript" },
-      { name: "React JS", icon: "bxl-react" },
-      { name: "CSS3", icon: "bxl-css3" },
+    eyebrow: "Bantotal · Experiencia profesional",
+    title: "Banca digital para Latinoamérica",
+    summary:
+      "Desarrollo frontend y mobile en múltiples productos financieros, trabajando sobre flujos críticos de acceso, operaciones bancarias y publicación para Android e iOS.",
+    role: "Desarrollador Mobile · React Native",
+    period: "Feb 2023 — Actualidad",
+    status: "Producción",
+    highlights: [
+      "Onboarding, login, recuperación de credenciales, 2FA y biometría.",
+      "Transferencias, movimientos, wallet funding, DPF, pagos y recargas.",
+      "SSL pinning, soft token, API 35, Fastlane, GitLab CI, Firebase y TestFlight.",
     ],
-    linkRepository: "https://github.com/jhonccastilloa/ecommerce",
-    linkExample: "https://eccomerce-electra.netlify.app/",
-    img: "ecomerce.png",
+    technologies: [
+      "React Native",
+      "React",
+      "Angular",
+      "TypeScript",
+      "Redux",
+      "Fastlane",
+    ],
+    featured: true,
   },
   {
-    title: "Pokedex App",
-    technologies: [
-      { name: "TypeScript", icon: "bxl-typescript" },
-      { name: "React JS", icon: "bxl-react" },
-      { name: "CSS3", icon: "bxl-css3" },
+    eyebrow: "Producto mobile personal",
+    title: "DebtMate",
+    summary:
+      "Aplicación Android de uso personal para registrar deudas, entender balances por contacto y mantener cuentas compartidas entre personas desde una experiencia simple.",
+    role: "Diseño y desarrollo full stack",
+    period: "2026 — Actualidad",
+    status: "Uso personal",
+    highlights: [
+      "Registro de movimientos, balances individuales y evolución de deuda.",
+      "Contactos, invitaciones y cuentas compartidas con reglas de participación.",
+      "API REST con Express, Prisma y OpenAPI; distribución privada mediante Firebase.",
     ],
-    linkRepository: "https://github.com/jhonccastilloa/Pokedex",
-    linkExample: "https://pokedex-jcastilloa.netlify.app/",
-    img: "pokedex.png",
+    technologies: [
+      "React Native",
+      "TypeScript",
+      "React Query",
+      "Zustand",
+      "Express",
+      "Prisma",
+      "OpenAPI",
+    ],
   },
   {
-    title: "CRUD App",
-    technologies: [
-      { name: "TypeScript", icon: "bxl-typescript" },
-      { name: "React JS", icon: "bxl-react" },
-      { name: "CSS3", icon: "bxl-css3" },
+    eyebrow: "Proyecto independiente",
+    title: "Plataforma de gestión de expedientes técnicos",
+    summary:
+      "Sistema empresarial en producción para coordinar expedientes, tareas, documentos y procesos administrativos con flujos especializados para equipos técnicos.",
+    role: "Desarrollo full stack",
+    period: "Jul 2023 — Actualidad",
+    status: "Producción",
+    highlights: [
+      "Interfaces operativas para expedientes, tareas, planillas, asistencia y reuniones.",
+      "Composición, foliación, impresión y exportación avanzada de documentos PDF.",
+      "APIs Node.js, PostgreSQL y operación self-hosted con Docker, Nginx y TLS.",
     ],
-    linkRepository: "https://github.com/jhonccastilloa/CRUD-Users",
-    linkExample: "https://crud-users-jcastilloa.netlify.app/",
-    img: "crud.png",
+    technologies: [
+      "React",
+      "TypeScript",
+      "React Query",
+      "Node.js",
+      "PostgreSQL",
+      "Docker",
+      "Nginx",
+    ],
   },
   {
-    title: "Rick and Morty Wiki",
-    technologies: [
-      { name: "TypeScript", icon: "bxl-typescript" },
-      { name: "React JS", icon: "bxl-react" },
-      { name: "CSS3", icon: "bxl-css3" },
+    eyebrow: "Proyecto colaborativo",
+    title: "Plataforma comercial y de posventa",
+    summary:
+      "Plantilla modular en desarrollo para automatizar ventas, inventario, caja, comprobantes electrónicos y atención posventa en futuras implementaciones empresariales.",
+    role: "Liderazgo técnico y desarrollo full stack",
+    period: "Oct 2025 — Actualidad",
+    status: "En desarrollo",
+    highlights: [
+      "Catálogo, categorías, atributos, inventario, Kardex y operaciones de caja.",
+      "Órdenes de servicio, diagnóstico, presupuesto, evidencias, garantía y entrega.",
+      "API REST modular con Express y Prisma; comprobantes electrónicos en progreso.",
     ],
-    linkRepository: "https://github.com/jhonccastilloa/Rick-and-Morty-App",
-    linkExample: "https://rick-adn-morty-wiki-jcastilloa.netlify.app/",
-    img: "RickAndMorty.png",
-  },
-  {
-    title: "Weather App",
     technologies: [
-      { name: "React JS", icon: "bxl-react" },
-      { name: "JavaScript", icon: "bxl-javascript" },
-      { name: "CSS3", icon: "bxl-css3" },
+      "React",
+      "TypeScript",
+      "TanStack Query",
+      "Express",
+      "Prisma",
+      "Docker",
     ],
-    linkRepository: "https://github.com/jhonccastilloa/Weather-App",
-    linkExample: "https://weather-app-jcastilloa.netlify.app/",
-    img: "weather.png",
-  },
-  {
-    title: "Quotes App",
-    technologies: [
-      { name: "React JS", icon: "bxl-react" },
-      { name: "JavaScript", icon: "bxl-javascript" },
-      { name: "CSS3", icon: "bxl-css3" },
-    ],
-    linkRepository: "https://github.com/jhonccastilloa/Motivational-Quotes",
-    linkExample: "https://motivational-quote-for-click.netlify.app/",
-    img: "quotes.png",
-  },
-  {
-    title: "Calculator App",
-    technologies: [
-      { name: "React JS", icon: "bxl-react" },
-      { name: "JavaScript", icon: "bxl-javascript" },
-      { name: "CSS3", icon: "bxl-css3" },
-    ],
-    linkRepository: "https://github.com/jhonccastilloa/Calculator-React",
-    linkExample: "https://jcastilloa-calculator-app.netlify.app/",
-    img: "calculator.png",
-  },
-  {
-    title: "E-commerce en equipo",
-    technologies: [
-      { name: "JavaScript", icon: "bxl-javascript" },
-      { name: "HTML5", icon: "bxl-html5" },
-      { name: "CSS3", icon: "bxl-css3" },
-    ],
-    linkRepository: "https://github.com/jhonccastilloa/E-commerce",
-    linkExample: "https://ecommerce-136d06.netlify.app/",
-    img: "movies.png",
-  },
-  {
-    title: "Convocatorias CAS App",
-    technologies: [
-      { name: "PHP", icon: "bxl-php" },
-      { name: "JavaScript", icon: "bxl-javascript" },
-      { name: "HTML5", icon: "bxl-html5" },
-      { name: "Bootstrap", icon: "bxl-bootstrap" },
-    ],
-    linkRepository: "https://github.com/jhonccastilloa/Convocatorias-CAS",
-    img: "convocatorias.png",
-  },
-  {
-    title: "Convocatorias CAS App",
-    technologies: [
-      { name: "PHP", icon: "bxl-php" },
-      { name: "JavaScript", icon: "bxl-javascript" },
-      { name: "HTML5", icon: "bxl-html5" },
-      { name: "Bootstrap", icon: "bxl-bootstrap" },
-    ],
-    linkRepository: "https://github.com/jhonccastilloa/SISTitulos",
-    img: "sisTitulos.png",
-  },
-  {
-    title: "Landing Page/Ecommerce",
-    technologies: [
-      { name: "PHP", icon: "bxl-php" },
-      { name: "JavaScript", icon: "bxl-javascript" },
-      { name: "HTML5", icon: "bxl-html5" },
-      { name: "Bootstrap", icon: "bxl-bootstrap" },
-    ],
-    linkRepository: "https://github.com/jhonccastilloa/Novatec-Energy",
-    img: "novatec.png",
   },
 ];
 ---
 
+<SectionHeading
+  eyebrow="Trabajo seleccionado"
+  title="Experiencia aplicada a productos reales"
+  description="Casos resumidos sin exponer código, clientes ni información confidencial. El foco está en los problemas, el alcance y las decisiones técnicas."
+/>
+
 <div class="portfolio">
-  {projects.map((project) => <PortfolioItem {...project} />)}
+  {cases.map((caseStudy) => <CaseStudyItem {...caseStudy} />)}
 </div>
 
 <style>
   .portfolio {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-    padding: var(--padding-vertical);
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 820px) {
+    .portfolio {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 </style>

@@ -1,36 +1,88 @@
 ---
-import { SkillRate } from "../components";
-import { MySql, Npm, Postman, Express, AstroIcon } from "../components/icons";
+import { CapabilityGroup, SectionHeading } from "../components";
+import type { Capability } from "../interfaces/types";
 
-const FRONT_END_SKILLS = [
-  { name: "JavaScript", icon: "bxl-javascript" },
-  { name: "TypeScript", icon: "bxl-typescript" },
-  { name: "CSS 3", icon: "bxl-css3" },
-  { name: "React JS", icon: "bxl-react" },
-  { name: "React Native", icon: "bx-mobile-alt" },
-  { name: "Redux", icon: "bxl-redux" },
-  { name: "Angular", icon: "bxl-angular" },
-  { name: "Astro", Icon: AstroIcon },
-  { name: "HTML 5", icon: "bxl-html5" },
-];
-const BACK_END_SKILLS = [
-  { name: "Node JS", icon: "bxl-nodejs" },
-  { name: "Express JS", Icon: Express },
-  { name: "PHP", icon: "bxl-php" },
-  { name: "MySQL", Icon: MySql },
-  { name: "PostgreSQL", icon: "bxl-postgresql" },
-  { name: "Mongo DB", icon: "bxl-mongodb" },
-];
-const TOOLS = [
-  { name: "GIT", icon: "bxl-git" },
-  { name: "NPM", Icon: Npm },
-  { name: "Postman", Icon: Postman },
-  { name: "Docker", icon: "bxl-docker" },
+const capabilities: Capability[] = [
+  {
+    title: "Frontend web",
+    description:
+      "Construcción de interfaces escalables para operaciones complejas, con formularios, tablas, permisos, estados remotos y sistemas de diseño.",
+    technologies: [
+      "React",
+      "Angular",
+      "TypeScript",
+      "React Query",
+      "Redux",
+      "Accesibilidad",
+    ],
+    primary: true,
+  },
+  {
+    title: "Desarrollo mobile",
+    description:
+      "Aplicaciones React Native con integraciones nativas, biometría, seguridad, navegación y ciclos de publicación para Android e iOS.",
+    technologies: [
+      "React Native",
+      "Android",
+      "iOS",
+      "Biometría",
+      "Fastlane",
+      "Firebase",
+    ],
+    primary: true,
+  },
+  {
+    title: "Backend y APIs",
+    description:
+      "Diseño de APIs REST, autenticación, validaciones y persistencia para sostener productos web y móviles de principio a fin.",
+    technologies: [
+      "Node.js",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "REST",
+      "OpenAPI",
+    ],
+  },
+  {
+    title: "Infraestructura self-hosted",
+    description:
+      "Operación de servicios en infraestructura propia con reverse proxy, TLS, DNS, VPN, backups, monitoreo y recuperación.",
+    technologies: [
+      "Docker",
+      "Nginx",
+      "TLS",
+      "DNS",
+      "WireGuard",
+      "Backups",
+    ],
+  },
 ];
 ---
 
-<>
-  <SkillRate skills={FRONT_END_SKILLS} subtitle="Frontend Development" />
-  <SkillRate skills={BACK_END_SKILLS} subtitle="Back End Development" />
-  <SkillRate skills={TOOLS} subtitle="Tools" />
-</>
+<SectionHeading
+  eyebrow="Capacidades"
+  title="Especialización con visión integral"
+  description="Frontend y mobile son el centro. Backend e infraestructura aportan la capacidad de llevar una funcionalidad desde la interfaz hasta su operación en producción."
+/>
+
+<div class="capabilities">
+  {capabilities.map((capability) => <CapabilityGroup {...capability} />)}
+</div>
+
+<style>
+  .capabilities {
+    display: grid;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  @media (min-width: 820px) {
+    .capabilities {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .capabilities > :global(article:nth-child(even)) {
+      border-left: 1px solid var(--border-color);
+    }
+  }
+</style>

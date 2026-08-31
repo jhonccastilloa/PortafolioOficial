@@ -1,109 +1,93 @@
 ---
-import { Image } from "astro:assets";
+import type { Experience } from "../interfaces/types";
 
-interface Props {
-  img?: ImageMetadata;
-  company: string;
-  position: string;
-  period: string;
-  description: string[];
-  technologies?: string[];
-}
-const { company, period, position, img, description, technologies } =
-  Astro.props;
+const { company, position, period, description, technologies = [] } =
+  Astro.props as Experience;
 ---
 
-<div class="experienceItem">
-  {
-    img && (
-      <figure class="experienceItem-figure">
-        <Image class="img-float" src={img} alt={company} loading="lazy" />
-      </figure>
-    )
-  }
-  <h3 class="experienceItem-subtitle">{company}</h3>
-  <p class="experienceItem-position">{position}</p>
-  <p class="experienceItem-paragraph">{period}</p>
-  <ul class="experienceItem-description">
-    {description.map((item) => <li>{item}</li>)}
-  </ul>
-  {
-    technologies && technologies.length > 0 && (
-      <div class="experienceItem-technologies">
-        <strong>Tecnologías:</strong> {technologies.join(", ")}
-      </div>
-    )
-  }
-</div>
+<article class="experienceItem">
+  <div class="experienceItem__period">{period}</div>
+  <div class="experienceItem__content">
+    <p class="experienceItem__company">{company}</p>
+    <h3 class="experienceItem__position">{position}</h3>
+    <ul class="experienceItem__description">
+      {description.map((item) => <li>{item}</li>)}
+    </ul>
+    {
+      technologies.length > 0 && (
+        <ul class="experienceItem__technologies" aria-label="Tecnologías">
+          {technologies.map((technology) => <li>{technology}</li>)}
+        </ul>
+      )
+    }
+  </div>
+</article>
 
 <style>
   .experienceItem {
-    margin-bottom: 3.2rem;
-    width: 100%;
-    max-width: 20rem;
+    display: grid;
+    padding-block: 2rem;
+    gap: 0.85rem;
+    border-top: 1px solid var(--border-color);
   }
-  .experienceItem-subtitle {
-    color: var(--primary-color);
-    font-size: var(--text-lg);
-    font-weight: 700;
-    padding: 10px 0 5px;
-  }
-  .experienceItem-position {
-    color: var(--text-color);
-    font-weight: 600;
-    padding: 5px 0;
-  }
-  .experienceItem-paragraph {
-    color: var(--text-color-secondary);
-    font-size: var(--text-base);
-    margin-bottom: 10px;
-  }
-  .experienceItem-description {
-    color: var(--text-color);
-    font-size: var(--text-sm);
-    list-style: disc;
-    padding-left: 20px;
-    margin-bottom: 10px;
-  }
-  .experienceItem-description li {
-    margin-bottom: 5px;
-  }
-  .experienceItem-technologies {
-    color: var(--text-color-secondary);
-    font-size: var(--text-xs);
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .experienceItem-technologies strong {
-    color: var(--primary-color);
-  }
-  .experienceItem-figure {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 120px;
-    width: 100%;
-    margin: 0 auto;
-    filter: grayscale(100%);
-    transition:
-      transform 0.3s ease,
-      filter 0.5s ease;
-  }
-  .experienceItem-figure:hover {
-    transform: scale(1.05);
-    filter: grayscale(0);
-  }
-  .img-float {
-    max-height: 100px;
-    max-width: 100%;
-    object-fit: contain;
-  }
-  @media (max-width: 768px) {
-    .experienceItem {
-      max-width: none;
-      padding: 0 1rem;
-    }
 
+  .experienceItem__period {
+    color: var(--text-color-subtle);
+    font-size: var(--text-sm);
+  }
+
+  .experienceItem__content {
+    max-width: 48rem;
+  }
+
+  .experienceItem__company {
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .experienceItem__position {
+    font-size: clamp(1.25rem, 3vw, 1.65rem);
+    line-height: 1.25;
+  }
+
+  .experienceItem__description {
+    display: grid;
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  .experienceItem__description li {
+    position: relative;
+    padding-left: 1rem;
+    color: var(--text-color-secondary);
+  }
+
+  .experienceItem__description li::before {
+    content: "";
+    position: absolute;
+    top: 0.68rem;
+    left: 0;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+  }
+
+  .experienceItem__technologies {
+    display: flex;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.8rem;
+    color: var(--text-color-subtle);
+    font-size: var(--text-xs);
+  }
+
+  @media (min-width: 768px) {
+    .experienceItem {
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: 2rem;
+    }
   }
 </style>

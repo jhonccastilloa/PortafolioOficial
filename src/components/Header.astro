@@ -1,252 +1,275 @@
 ---
 const navItems = [
-  { label: "Inicio", href: "#home" },
-  { label: "Acerca de mí", href: "#about" },
-  { label: "Habilidades", href: "#skill" },
-  { label: "Estudios", href: "#study" },
+  { label: "Casos", href: "#work" },
   { label: "Experiencia", href: "#experience" },
-  { label: "Servicios", href: "#service" },
-  { label: "Mi portafolio", href: "#portfolio" },
+  { label: "Capacidades", href: "#capabilities" },
+  { label: "Perfil", href: "#about" },
   { label: "Contacto", href: "#contact" },
 ];
 ---
 
-<nav class="header__nav-container" aria-label="Navegación principal">
-  <div class="header__nav">
-    <figure class="header__logo">
-      <img class="header__logo-vector" src="/vectores/Decor.svg" alt="" />
-    </figure>
-    <div id="site-menu" class="header__menu">
-      <button
-        type="button"
-        class="header__menu-btn--close"
-        aria-label="Cerrar menú"
-      >
-        <i class="bx bx-x" aria-hidden="true"></i>
-      </button>
-      <ul class="header__nav-list">
-        {
-          navItems.map(({ href, label }) => (
-            <li class="header__nav-item">
-              <a class="header__nav-link " href={href}>
-                {label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+<header class="header">
+  <nav class="header__nav" aria-label="Navegación principal">
+    <a class="header__brand" href="#home" aria-label="Ir al inicio">
+      <span class="header__monogram" aria-hidden="true">JC</span>
+      <span class="header__name">Jhon Castillo</span>
+    </a>
+
     <button
+      class="header__toggle"
       type="button"
-      class="header__menu-btn--open"
       aria-label="Abrir menú"
       aria-controls="site-menu"
       aria-expanded="false"
     >
-      <i class="bx bx-menu" aria-hidden="true"></i>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
-  </div>
-</nav>
+
+    <div class="header__menu" id="site-menu">
+      <ul class="header__links">
+        {
+          navItems.map(({ href, label }) => (
+            <li>
+              <a class="header__link" href={href}>{label}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <a
+        class="header__cv"
+        href="/pdf/JhonCarlosCastilloAtencio-cv.pdf"
+        download
+      >
+        Descargar CV
+      </a>
+    </div>
+  </nav>
+</header>
 
 <script>
-  const btnMenu = document.querySelector<HTMLButtonElement>(
-    ".header__menu-btn--open",
-  );
-  const btnClose = document.querySelector<HTMLButtonElement>(
-    ".header__menu-btn--close",
-  );
+  const toggle = document.querySelector<HTMLButtonElement>(".header__toggle");
   const menu = document.querySelector<HTMLElement>(".header__menu");
+  const links = document.querySelectorAll<HTMLAnchorElement>(".header__link");
 
   const setMenuOpen = (isOpen: boolean) => {
     menu?.classList.toggle("header__menu--open", isOpen);
-    btnMenu?.setAttribute("aria-expanded", String(isOpen));
+    toggle?.classList.toggle("header__toggle--open", isOpen);
+    toggle?.setAttribute("aria-expanded", String(isOpen));
+    toggle?.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
   };
 
-  btnMenu?.addEventListener("click", () => {
-    setMenuOpen(true);
-  });
-  btnClose?.addEventListener("click", () => {
-    setMenuOpen(false);
-    btnMenu?.focus();
+  toggle?.addEventListener("click", () => {
+    setMenuOpen(toggle.getAttribute("aria-expanded") !== "true");
   });
 
   document
-    .querySelectorAll<HTMLAnchorElement>(".header__nav-link")
-    .forEach((link) => {
-      link.addEventListener("click", () => setMenuOpen(false));
-    });
+    .querySelectorAll<HTMLAnchorElement>(".header__menu a")
+    .forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       setMenuOpen(false);
-      btnMenu?.focus();
+      toggle?.focus();
     }
   });
-
-  //------//
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        const id = entry.target.getAttribute("id");
-        const menuLink = document.querySelector(
-          `.header__nav-list a[href="#${id}"]`,
-        );
-        if (entry.isIntersecting) {
-          let current = document.querySelector(".header__nav-link--active");
-          current?.classList.remove("header__nav-link--active");
-          menuLink?.classList.add("header__nav-link--active");
-        }
+        if (!entry.isIntersecting) return;
+        links.forEach((link) => {
+          const isActive = link.getAttribute("href") === `#${entry.target.id}`;
+          link.classList.toggle("header__link--active", isActive);
+          if (isActive) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
       });
     },
-    { rootMargin: "-35% 0px -65% 0px" },
+    { rootMargin: "-35% 0px -55% 0px" },
   );
 
-  const sections = document.querySelectorAll(".header__nav-link");
-  for (let i = 0; i < sections.length; i++) {
-    const hash = sections[i].getAttribute("href");
-    if (hash) {
-      const section = document.querySelector(hash);
-      if (section) {
-        observer.observe(section);
-      }
-    }
-  }
+  links.forEach((link) => {
+    const target = document.querySelector(link.getAttribute("href") ?? "");
+    if (target) observer.observe(target);
+  });
 </script>
 
 <style>
-  .header__nav-link {
-    color: var(--text-color);
-    font-size: var(--text-base);
+  .header {
+    position: sticky;
+    z-index: var(--z-fixed);
+    top: 0;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(16, 17, 25, 0.88);
+    backdrop-filter: blur(18px);
   }
-  .header__nav-item {
-    margin-bottom: 16px;
+
+  .header__nav {
+    display: flex;
+    min-height: 4.5rem;
+    width: min(calc(100% - 2rem), var(--container-width));
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
     font-weight: 600;
   }
-  .header__nav-container {
-    width: 90%;
-    max-width: 1380px;
-    margin: auto;
+
+  .header__monogram {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border: 1px solid var(--border-color-strong);
+    border-radius: var(--radius-sm);
+    color: var(--primary-color);
+    font-size: var(--text-sm);
+    letter-spacing: -0.03em;
   }
-  .header__nav {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 2rem;
+
+  .header__name {
+    display: none;
   }
-  .header__logo {
+
+  .header__toggle {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-content: center;
+    gap: 0.35rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .header__toggle span {
+    width: 1.15rem;
+    height: 1px;
+    background: var(--text-color);
+    transition: transform 200ms ease;
+  }
+
+  .header__toggle--open span:first-child {
+    transform: translateY(0.2rem) rotate(45deg);
+  }
+
+  .header__toggle--open span:last-child {
+    transform: translateY(-0.2rem) rotate(-45deg);
+  }
+
+  .header__menu {
     position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    display: none;
     width: 100%;
-    height: auto;
-  }
-  .header__logo-vector {
-    width: 80px;
-    height: auto;
-  }
-  .header__nav-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1rem;
+    padding: 1.25rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--background-color-secondary);
   }
 
-  .header__menu-btn--close {
-    position: absolute;
-    right: 16px;
-    top: 16px;
-    background-color: var(--background-color-secondary);
-    border-radius: 23px;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0;
+  .header__menu--open {
+    display: block;
+  }
+
+  .header__links {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .header__link {
+    display: block;
+    padding: 0.65rem 0;
+    color: var(--text-color-secondary);
+    font-size: var(--text-sm);
+    transition: color 180ms ease;
+  }
+
+  .header__link:hover,
+  .header__link--active {
     color: var(--text-color);
-    cursor: pointer;
-    font: inherit;
-    padding: 0;
-  }
-  .header__menu-btn--open {
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    z-index: 99;
-    background-color: var(--background-color-secondary);
-    border-radius: 23px;
-    border: 0;
-    color: var(--text-color);
-    cursor: pointer;
-    font: inherit;
-    padding: 0;
-    /* padding: 10px; */
   }
 
-  .header__nav-link:hover {
+  .header__cv {
+    display: inline-flex;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--border-color-strong);
+    border-radius: var(--radius-sm);
     color: var(--primary-color);
-    border-bottom: 1.5px solid var(--primary-color);
-  }
-  .header__nav-link--active {
-    color: var(--primary-color);
-    border-bottom: 1.5px solid var(--primary-color);
+    font-size: var(--text-sm);
+    font-weight: 500;
   }
 
-  @media (max-width: 767px) {
-    .header__menu {
-      position: fixed;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      padding: 2rem 1rem 1rem;
-      background-color: var(--background-color);
-      transition: 0.5s;
-      z-index: var(--z-fixed);
-      border-bottom: 2px solid var(--primary-color);
-      border-radius: 0 0 22px 22px;
-    }
-    .header__menu--open {
-      top: 0;
-    }
-  }
   @media (min-width: 768px) {
-    .about__main {
-      flex-direction: row;
+    .header__nav {
+      width: min(calc(100% - 4rem), var(--container-width));
+    }
+
+    .header__name {
+      display: inline;
+    }
+
+    .header__toggle {
+      display: none;
     }
 
     .header__menu {
-      align-items: flex-end;
-      position: fixed;
-      z-index: var(--z-fixed);
-      background-color: var(--background-color);
-      border-radius: 23px;
-    }
-    .header__menu-btn--close {
-      display: none;
-    }
-    .header__logo-vector {
-      width: 150px;
-      height: auto;
+      position: static;
+      display: flex;
+      width: auto;
+      padding: 0;
+      align-items: center;
+      gap: 1.5rem;
+      border: 0;
+      background: transparent;
     }
 
-    .header__menu-btn--open {
-      display: none;
-    }
-    .header__nav-list {
-      height: 40px;
-      flex-direction: row;
-      justify-content: flex-end;
-      font-weight: 400;
+    .header__links {
+      display: flex;
       align-items: center;
-      text-align: center;
-      gap: 30px;
-      font-size: 14px;
-      padding: 0 15px;
+      gap: 1.4rem;
     }
-    .header__nav-item {
+
+    .header__link {
+      position: relative;
+      padding: 1.5rem 0;
+    }
+
+    .header__link::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 1.1rem;
+      left: 0;
+      height: 1px;
+      transform: scaleX(0);
+      background: var(--primary-color);
+      transition: transform 180ms ease;
+    }
+
+    .header__link:hover::after,
+    .header__link--active::after {
+      transform: scaleX(1);
+    }
+
+    .header__cv {
       margin: 0;
+      transition:
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .header__cv:hover {
+      border-color: var(--primary-color);
+      background: var(--primary-color-soft);
     }
   }
 </style>

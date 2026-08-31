@@ -3,23 +3,33 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <p class="footer__text">
-    © {currentYear} jcastilloa. Todos los derechos reservados.
-  </p>
+  <div class="footer__content">
+    <p>© {currentYear} Jhon Castillo</p>
+    <p>Frontend & Mobile Developer</p>
+  </div>
 </footer>
 
 <style>
   .footer {
-    margin-top: 25px;
-    height: 150px;
-    display: flex;
-    text-align: center;
-    align-items: flex-end;
+    border-top: 1px solid var(--border-color);
   }
-  .footer__text {
-    color: var(--primary-color);
-    font-size: 20px;
-    width: 100%;
-    margin: 20px 0;
+
+  .footer__content {
+    display: flex;
+    width: min(calc(100% - 2rem), var(--container-width));
+    margin: 0 auto;
+    padding-block: 1.75rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: var(--text-color-subtle);
+    font-size: var(--text-sm);
+  }
+
+  @media (min-width: 640px) {
+    .footer__content {
+      width: min(calc(100% - 4rem), var(--container-width));
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 </style>

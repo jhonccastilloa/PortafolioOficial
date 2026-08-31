@@ -1,42 +1,91 @@
 ---
-import { ContactItem } from "../components";
+import { ContactItem, SectionHeading } from "../components";
+import type { ContactLink } from "../interfaces/types";
 
-const contacts = [
-  { href: "tel:+51941882754", icon: "bxs-phone", text: "Teléfono" },
+const contacts: ContactLink[] = [
   {
     href: "mailto:jhoncarloscastilloatencio@gmail.com",
-    icon: "bxs-envelope",
-    text: "Correo electrónico",
+    label: "Correo",
+    value: "jhoncarloscastilloatencio@gmail.com",
   },
   {
-    href: "https://wa.me/51941882754?text=Hola%2C%20muy%20buenas",
-    icon: "bxl-whatsapp",
-    text: "WhatsApp",
+    href: "tel:+51941882754",
+    label: "Teléfono",
+    value: "+51 941 882 754",
   },
   {
-    href: "https://github.com/jhonccastilloa",
-    icon: "bxl-github",
-    text: "GitHub",
+    href: "https://wa.me/51941882754?text=Hola%20Jhon%2C%20vi%20tu%20portafolio",
+    label: "WhatsApp",
+    value: "Iniciar conversación",
+    external: true,
   },
   {
-    href: "https://www.linkedin.com/in/jccastilloa/",
-    icon: "bxl-linkedin",
-    text: "LinkedIn",
+    href: "https://www.linkedin.com/in/jccastilloa",
+    label: "LinkedIn",
+    value: "linkedin.com/in/jccastilloa",
+    external: true,
   },
 ];
 ---
 
-<div class="contacts">
-  {contacts.map((contact) => <ContactItem {...contact} />)}
+<div class="contact">
+  <div>
+    <SectionHeading
+      eyebrow="Contacto"
+      title="Conversemos sobre el próximo producto"
+      description="Estoy interesado en oportunidades frontend y mobile para equipos de habla hispana."
+    />
+    <a
+      class="contact__cv"
+      href="/pdf/JhonCarlosCastilloAtencio-cv.pdf"
+      download
+    >
+      Descargar CV
+      <span aria-hidden="true">↓</span>
+    </a>
+  </div>
+
+  <div class="contact__links">
+    {contacts.map((contact) => <ContactItem {...contact} />)}
+  </div>
 </div>
 
 <style>
-  .contacts {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-    gap: 3.2rem;
-    padding: var(--padding-vertical);
+  .contact {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .contact :global(.sectionHeading) {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact__cv {
+    display: inline-flex;
+    padding: 0.75rem 1rem;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: var(--radius-sm);
+    background: var(--primary-color);
+    color: var(--background-color);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    transition: background 180ms ease;
+  }
+
+  .contact__cv:hover {
+    background: var(--primary-color-strong);
+  }
+
+  .contact__links {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  @media (min-width: 820px) {
+    .contact {
+      grid-template-columns: minmax(0, 1fr) minmax(24rem, 0.85fr);
+      align-items: start;
+      gap: 5rem;
+    }
   }
 </style>

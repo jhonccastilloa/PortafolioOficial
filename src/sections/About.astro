@@ -1,73 +1,144 @@
 ---
-import { Image } from "astro:assets";
-import programing from "../assets/images/programing.png";
+import { SectionHeading } from "../components";
+
+const principles = [
+  {
+    title: "Claridad",
+    text: "Interfaces que priorizan la tarea y reducen el ruido visual.",
+  },
+  {
+    title: "Confiabilidad",
+    text: "Atención a validaciones, estados, seguridad y escenarios reales.",
+  },
+  {
+    title: "Autonomía",
+    text: "Capacidad para avanzar desde la interfaz hasta la entrega técnica.",
+  },
+];
 ---
 
-<div class="about__main">
-  <div class="about__texts">
-    <p class="about__paragraph">
-      Desarrollador full stack con bachiller en ingeniería de sistemas y una
-      gran pasión por el desarrollo web. Tengo gran experiencia y conocimientos
-      que me permiten desarrollar aplicaciones web o móvil personalizadas y
-      eficientes que se adaptan a las necesidades de los usuarios.
+<SectionHeading eyebrow="Perfil" title="Ingeniero de Sistemas enfocado en producto" />
+
+<div class="about">
+  <div class="about__copy">
+    <p>
+      Soy Jhon Castillo, Ingeniero de Sistemas y desarrollador especializado en
+      frontend y mobile. Trabajo principalmente con React y React Native en
+      productos donde la experiencia, la seguridad y la estabilidad son parte
+      esencial de la solución.
     </p>
-    <p class="about__paragraph">
-      Siempre estoy en busca de nuevos retos y oportunidades que me permitan
-      crecer profesionalmente. Si estás buscando un desarrollador web/móvil
-      apasionado y comprometido, estoy aquí para ayudarte a alcanzar tus
-      objetivos con soluciones innovadoras y eficientes.
+    <p>
+      Mi experiencia full stack me permite entender el sistema completo,
+      colaborar mejor con otros equipos y resolver lo necesario para que una
+      funcionalidad llegue a producción sin perder el foco en el usuario.
     </p>
   </div>
-  <figure class="about__figure">
-    <Image
-      src={programing}
-      class="about__img img-float"
-      alt="Logo de programación"
-      loading="lazy"
-      decoding="async"
-      widths={[250, 500, 750]}
-      sizes="(max-width: 768px) 250px, (max-width: 1024px) 500px, 750px"
-      format="webp"
-    />
-  </figure>
+
+  <aside class="about__education">
+    <p class="about__label">Formación</p>
+    <h3>Ingeniero de Sistemas</h3>
+    <p>Universidad Nacional del Altiplano</p>
+    <span>2017 — 2022</span>
+  </aside>
 </div>
 
+<ul class="about__principles">
+  {
+    principles.map(({ title, text }) => (
+      <li>
+        <strong>{title}</strong>
+        <span>{text}</span>
+      </li>
+    ))
+  }
+</ul>
+
 <style>
-  .about__main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: var(--padding-vertical);
+  .about {
+    display: grid;
+    gap: 2rem;
   }
-  .about__img {
-    width: 100%;
+
+  .about__copy {
+    display: grid;
+    max-width: 46rem;
+    gap: 1rem;
+    color: var(--text-color-secondary);
+    font-size: var(--text-md);
   }
-  .about__texts {
-    flex: 1;
+
+  .about__education {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--background-color-secondary);
   }
-  .about__paragraph {
-    line-height:1.5;
-    font-size: var(--text-base);
-    color: var(--text-color);
-    padding: 0 0 15px 0;
-    transition:
-      color 300ms ease,
-      text-shadow 300ms ease;
+
+  .about__label {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: var(--text-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
-  .about__paragraph:hover {
-    color: var(--text-color);
-    text-shadow: 0 0 10px var(--text-color);
+
+  .about__education h3 {
+    font-size: var(--text-lg);
   }
-  .about__figure {
-    width: 16rem;
+
+  .about__education p:not(.about__label),
+  .about__education span {
+    color: var(--text-color-secondary);
+    font-size: var(--text-sm);
   }
+
+  .about__principles {
+    display: grid;
+    margin-top: 3rem;
+    border-block: 1px solid var(--border-color);
+  }
+
+  .about__principles li {
+    display: grid;
+    padding-block: 1rem;
+    gap: 0.25rem;
+  }
+
+  .about__principles li + li {
+    border-top: 1px solid var(--border-color);
+  }
+
+  .about__principles strong {
+    font-size: var(--text-sm);
+  }
+
+  .about__principles span {
+    color: var(--text-color-secondary);
+    font-size: var(--text-sm);
+  }
+
   @media (min-width: 768px) {
-    .about__main {
-      flex-direction: row;
+    .about {
+      grid-template-columns: minmax(0, 1.6fr) minmax(16rem, 0.7fr);
+      align-items: start;
+      gap: 4rem;
     }
-    .about__paragraph {
-      font-size: var(--text-xl);
+
+    .about__principles {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .about__principles li {
+      padding: 1.25rem;
+    }
+
+    .about__principles li:first-child {
+      padding-left: 0;
+    }
+
+    .about__principles li + li {
+      border-top: 0;
+      border-left: 1px solid var(--border-color);
     }
   }
 </style>

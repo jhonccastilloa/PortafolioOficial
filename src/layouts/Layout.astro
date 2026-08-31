@@ -4,128 +4,67 @@ import Header from "../components/Header.astro";
 
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="Jhon Carlos Castillo Atencio" />
-    <meta name="theme-color" content="#01be96" />
-    <link rel="canonical" href="https://jcastilloa.dhyrium.website/" />
-    <link rel="icon" type="image/png" href="/logos-imagenes/favi.png" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="preload"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-        rel="stylesheet"
-      />
-    </noscript>
-    <meta
-      name="google-site-verification"
-      content="4dBRqESiBG8GqQENFBcV8taPmFWtVLsEg8apfm3rXqM"
-    />
+    <meta name="author" content="Jhon Castillo" />
+    <meta name="theme-color" content="#101119" />
     <meta name="generator" content={Astro.generator} />
-    <!-- Primary Meta Tags -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href="/logos-imagenes/favi.png" />
+
     <title>{title}</title>
-    <meta
-      name="title"
-      content="Jhon Carlos Castillo Atencio | Full Stack Developer"
-    />
-    <meta
-      name="description"
-      content="Desarrollador full stack con bachiller en ingeniería de sistemas. Especialista en desarrollo web con conocimientos en HTML5, CSS3, JavaScript, TypeScript, ReactJS, PHP y GIT. Ofrezco servicios de desarrollo web y móvil personalizados."
-    />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jcastilloa.dhyrium.website/" />
-    <meta
-      property="og:title"
-      content="Jhon Carlos Castillo Atencio | Full Stack Developer"
-    />
-    <meta
-      property="og:description"
-      content="Desarrollador full stack con bachiller en ingeniería de sistemas. Especialista en desarrollo web con conocimientos en HTML5, CSS3, JavaScript, TypeScript, ReactJS, PHP y GIT. Ofrezco servicios de desarrollo web y móvil personalizados."
-    />
-    <meta
-      property="og:image"
-      content="https://jcastilloa.dhyrium.website/logos-imagenes/preview.png"
-    />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://jcastilloa.dhyrium.website/"
-    />
-    <meta
-      property="twitter:title"
-      content="Jhon Carlos Castillo Atencio | Full Stack Developer"
-    />
-    <meta
-      property="twitter:description"
-      content="Desarrollador full stack con bachiller en ingeniería de sistemas. Especialista en desarrollo web con conocimientos en HTML5, CSS3, JavaScript, TypeScript, ReactJS, PHP y GIT. Ofrezco servicios de desarrollo web y móvil personalizados."
-    />
-    <meta
-      property="twitter:image"
-      content="https://jcastilloa.dhyrium.website/logos-imagenes/preview.png"
-    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preload" as="image" href="/vectores/Decor.svg" />
-    <link rel="preload" as="image" href="/vectores/Vector.svg" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jhon Carlos Castillo Atencio",
-        "jobTitle": "Full Stack Developer",
-        "url": "https://jcastilloa.dhyrium.website/",
-        "sameAs": [
-          "https://github.com/jhonccastilloa",
-          "https://www.linkedin.com/in/jhonccastilloa",
-          "https://www.codewars.com/users/Castillo-SAN"
-        ],
-        "description": "Desarrollador full stack con bachiller en ingeniería de sistemas. Especialista en desarrollo web con conocimientos en HTML5, CSS3, JavaScript, TypeScript, ReactJS, PHP y GIT.",
-        "email": "contacto@jcastilloa.dhyrium.website",
-        "knowsAbout": [
-          "HTML5",
-          "CSS3",
-          "JavaScript",
-          "TypeScript",
-          "ReactJS",
-          "PHP",
-          "GIT",
-          "Astro",
-          "Desarrollo Web",
-          "Desarrollo Móvil"
-        ]
-      }
-    </script>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Jhon Castillo",
+      jobTitle: "Frontend & Mobile Developer",
+      url: "https://jcastilloa.dhyrium.website/",
+      sameAs: [
+        "https://github.com/jhonccastilloa",
+        "https://www.linkedin.com/in/jccastilloa",
+      ],
+      email: "mailto:jhoncarloscastilloatencio@gmail.com",
+      knowsAbout: [
+        "React Native",
+        "React",
+        "Angular",
+        "TypeScript",
+        "Desarrollo frontend",
+        "Desarrollo móvil",
+        "Node.js",
+      ],
+      description,
+    })}></script>
   </head>
   <body>
     <Header />
@@ -133,5 +72,3 @@ const { title } = Astro.props;
     <Footer />
   </body>
 </html>
-
-<style is:global></style>

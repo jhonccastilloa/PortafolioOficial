@@ -2,24 +2,54 @@
 interface Props {
   id: string;
   isAlter?: boolean;
+  isCompact?: boolean;
 }
-const { id, isAlter } = Astro.props;
+
+const { id, isAlter = false, isCompact = false } = Astro.props;
 ---
 
-<section class={`section ${isAlter && "section--alt"}`} id={id}>
-  <slot />
+<section
+  class:list={[
+    "section",
+    { "section--alt": isAlter, "section--compact": isCompact },
+  ]}
+>
+  <div class="section__content" id={id}>
+    <slot />
+  </div>
 </section>
 
 <style>
   .section {
-    padding-top: 40px;
-    width: 90%;
-    max-width: 1380px;
-    margin: auto;
+    width: min(calc(100% - 2rem), var(--container-width));
+    margin: 0 auto;
+    padding-block: var(--section-space);
   }
+
+  .section--compact {
+    padding-block: clamp(2rem, 5vw, 4rem);
+  }
+
   .section--alt {
-    margin-bottom: 3.2rem;
-    background-color: var(--background-color-secondary);
-    border-radius: 10px;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .section--alt::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 1.5rem -50vw;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    border-block: 1px solid var(--border-color);
+    background: var(--surface-color-soft);
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      width: min(calc(100% - 4rem), var(--container-width));
+    }
   }
 </style>

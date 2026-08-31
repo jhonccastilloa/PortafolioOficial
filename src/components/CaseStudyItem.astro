@@ -1,0 +1,175 @@
+---
+import type { CaseStudy } from "../interfaces/types";
+
+const {
+  eyebrow,
+  title,
+  summary,
+  role,
+  period,
+  status,
+  highlights,
+  technologies,
+  featured = false,
+} = Astro.props as CaseStudy;
+---
+
+<article class:list={["caseStudy", { "caseStudy--featured": featured }]}>
+  <header class="caseStudy__header">
+    <div>
+      <p class="caseStudy__eyebrow">{eyebrow}</p>
+      <h3 class="caseStudy__title">{title}</h3>
+    </div>
+    <span class="caseStudy__status">{status}</span>
+  </header>
+
+  <p class="caseStudy__summary">{summary}</p>
+
+  <dl class="caseStudy__meta">
+    <div>
+      <dt>Rol</dt>
+      <dd>{role}</dd>
+    </div>
+    <div>
+      <dt>Periodo</dt>
+      <dd>{period}</dd>
+    </div>
+  </dl>
+
+  <ul class="caseStudy__highlights">
+    {highlights.map((highlight) => <li>{highlight}</li>)}
+  </ul>
+
+  <ul class="caseStudy__technologies" aria-label="Tecnologías utilizadas">
+    {technologies.map((technology) => <li>{technology}</li>)}
+  </ul>
+</article>
+
+<style>
+  .caseStudy {
+    display: flex;
+    min-height: 100%;
+    padding: clamp(1.35rem, 4vw, 2rem);
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--background-color-secondary);
+    transition:
+      border-color 200ms ease,
+      transform 200ms ease;
+  }
+
+  .caseStudy:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-color-strong);
+  }
+
+  .caseStudy--featured {
+    border-color: var(--border-color-strong);
+    background:
+      linear-gradient(135deg, rgba(1, 190, 150, 0.08), transparent 48%),
+      var(--background-color-secondary);
+  }
+
+  .caseStudy__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .caseStudy__eyebrow {
+    margin-bottom: 0.55rem;
+    color: var(--primary-color);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .caseStudy__title {
+    max-width: 28rem;
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .caseStudy__status {
+    flex: 0 0 auto;
+    padding: 0.3rem 0.55rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    color: var(--text-color-secondary);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .caseStudy__summary {
+    margin-top: 1.35rem;
+    color: var(--text-color-secondary);
+  }
+
+  .caseStudy__meta {
+    display: grid;
+    margin-top: 1.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .caseStudy__meta div {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .caseStudy__meta dt {
+    color: var(--text-color-subtle);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+  }
+
+  .caseStudy__meta dd {
+    margin-top: 0.25rem;
+    color: var(--text-color);
+    font-size: var(--text-sm);
+  }
+
+  .caseStudy__highlights {
+    display: grid;
+    margin-block: 1.5rem;
+    gap: 0.65rem;
+  }
+
+  .caseStudy__highlights li {
+    position: relative;
+    padding-left: 1rem;
+    color: var(--text-color-secondary);
+    font-size: var(--text-sm);
+  }
+
+  .caseStudy__highlights li::before {
+    content: "";
+    position: absolute;
+    top: 0.65rem;
+    left: 0;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+  }
+
+  .caseStudy__technologies {
+    display: flex;
+    margin-top: auto;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .caseStudy__technologies li {
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    background: var(--surface-color);
+    color: var(--text-color-secondary);
+    font-size: var(--text-xs);
+  }
+</style>
