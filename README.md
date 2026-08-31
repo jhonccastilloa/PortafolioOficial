@@ -1,54 +1,73 @@
-# Astro Starter Kit: Basics
+# Portafolio de Jhon Castillo
 
-```sh
-npm create astro@latest -- --template basics
+Portafolio profesional de **Jhon Castillo**, Frontend & Mobile Developer especializado en React, React Native y TypeScript. El sitio presenta experiencia profesional, casos de estudio, capacidades técnicas y medios de contacto.
+
+**Sitio publicado:** [jcastilloa.dhyrium.website](https://jcastilloa.dhyrium.website)
+
+## Características
+
+- Casos de estudio y experiencia profesional.
+- Capacidades organizadas por frontend, mobile, backend e infraestructura.
+- Diseño responsive y navegación por secciones.
+- Descarga directa del CV.
+- Metadatos SEO, URL canónica, sitemap y datos estructurados de Schema.org.
+
+## Tecnologías
+
+- [Astro 5](https://astro.build/)
+- TypeScript en modo estricto
+- CSS con estilos globales y estilos encapsulados por componente
+- Integración de sitemap mediante `@astrojs/sitemap`
+
+## Requisitos
+
+- Node.js `18.17.1+`, `20.3.0+` o `22+`
+- npm `9.6.5+`
+
+## Instalación local
+
+```bash
+git clone https://github.com/jhonccastilloa/PortafolioOficial.git
+cd PortafolioOficial
+npm install
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+El servidor de desarrollo estará disponible en `http://localhost:4321`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Comandos disponibles
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+| Comando | Descripción |
+| --- | --- |
+| `npm run dev` | Inicia el servidor de desarrollo. |
+| `npm run start` | Alias de `npm run dev`. |
+| `npm run build` | Comprueba los tipos y genera el sitio en `dist/`. |
+| `npm run preview` | Previsualiza localmente la compilación de producción. |
+| `npm run astro check` | Ejecuta las comprobaciones de Astro y TypeScript. |
+| `npm run astro -- --help` | Muestra la ayuda de la CLI de Astro. |
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Estructura del proyecto
 
 ```text
-/
-├── public/
-│   └── favicon.svg
+PortafolioOficial/
+├── public/                 # Recursos estáticos y CV
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/             # Imágenes procesadas por Astro
+│   ├── components/         # Componentes reutilizables
+│   ├── interfaces/         # Tipos compartidos de TypeScript
+│   ├── layouts/            # Estructura general de las páginas
+│   ├── pages/              # Rutas del sitio
+│   ├── sections/           # Secciones principales del portafolio
+│   └── styles/             # Estilos globales y variables CSS
+├── astro.config.mjs        # Configuración de Astro y sitemap
+├── package.json
+└── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Autor
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**Jhon Castillo**
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [GitHub](https://github.com/jhonccastilloa)
+- [LinkedIn](https://www.linkedin.com/in/jccastilloa)
+- [Correo](mailto:jhoncarloscastilloatencio@gmail.com)
