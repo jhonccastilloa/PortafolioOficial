@@ -11,6 +11,7 @@ const {
   highlights,
   technologies,
   featured = false,
+  links = [],
 } = Astro.props as CaseStudy;
 ---
 
@@ -24,6 +25,18 @@ const {
   </header>
 
   <p class="caseStudy__summary">{summary}</p>
+
+  {
+    links.length > 0 && (
+      <nav class="caseStudy__links" aria-label={`Enlaces de ${title}`}>
+        {links.map(({ href, label }) => (
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            {label} ↗
+          </a>
+        ))}
+      </nav>
+    )
+  }
 
   <dl class="caseStudy__meta">
     <div>
@@ -171,5 +184,22 @@ const {
     background: var(--surface-color);
     color: var(--text-color-secondary);
     font-size: var(--text-xs);
+  }
+
+  .caseStudy__links {
+    display: flex;
+    margin-top: 0.85rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--text-color-subtle);
+    font-size: var(--text-sm);
+  }
+
+  .caseStudy__links a {
+    transition: color 180ms ease;
+  }
+
+  .caseStudy__links a:hover {
+    color: var(--primary-color);
   }
 </style>

@@ -14,6 +14,11 @@ export interface Highlight {
   label: string;
 }
 
+export interface CaseStudyLink {
+  href: string;
+  label: string;
+}
+
 export interface CaseStudy {
   eyebrow: string;
   title: string;
@@ -24,6 +29,7 @@ export interface CaseStudy {
   highlights: string[];
   technologies: string[];
   featured?: boolean;
+  links?: CaseStudyLink[];
 }
 
 export interface Experience {
