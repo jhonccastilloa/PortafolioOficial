@@ -1,0 +1,291 @@
+---
+import { cv } from "../data/cv";
+import CvLayout from "../layouts/CvLayout.astro";
+
+const title = `CV - ${cv.name} - Desarrollador Mobile`;
+const description =
+  "Currículum profesional de Jhon Castillo, desarrollador Mobile especializado en React Native y TypeScript.";
+---
+
+<CvLayout {title} {description}>
+  <main>
+    <header class="cvHeader">
+      <h1>{cv.name}</h1>
+      <p class="cvHeader__headline">{cv.headline}</p>
+      <address class="cvHeader__contact">
+        <span>{cv.location}</span>
+        <span aria-hidden="true">·</span>
+        <a href={`tel:${cv.phone.replaceAll(" ", "")}`}>{cv.phone}</a>
+        <span aria-hidden="true">·</span>
+        <a href={`mailto:${cv.email}`}>{cv.email}</a>
+      </address>
+      <div class="cvHeader__links">
+        {
+          cv.links.map((link) => (
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </header>
+
+    <section class="cvSection" aria-labelledby="perfil-heading">
+      <h2 id="perfil-heading">Perfil</h2>
+      <p>{cv.profile}</p>
+    </section>
+
+    <section class="cvSection" aria-labelledby="experiencia-heading">
+      <h2 id="experiencia-heading">Experiencia profesional</h2>
+      <div class="cvEntries">
+        {
+          cv.experience.map((experience) => (
+            <article class="cvEntry">
+              <h3>
+                {experience.company}
+                <span aria-hidden="true"> | </span>
+                <span class="cvEntry__period">{experience.period}</span>
+              </h3>
+              <p class="cvEntry__role">{experience.role}</p>
+              <ul>
+                {experience.bullets.map((bullet) => <li>{bullet}</li>)}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="cvSection" aria-labelledby="proyectos-heading">
+      <h2 id="proyectos-heading">Proyectos seleccionados</h2>
+      <div class="cvEntries">
+        {
+          cv.projects.map((project) => (
+            <article class="cvEntry cvEntry--project">
+              <h3>
+                {project.href ? (
+                  <a href={project.href} target="_blank" rel="noopener noreferrer">
+                    {project.name}
+                  </a>
+                ) : (
+                  project.name
+                )}
+                <span aria-hidden="true"> | </span>
+                <span class="cvEntry__period">{project.period}</span>
+              </h3>
+              <p class="cvEntry__role">{project.descriptor}</p>
+              <p>{project.summary}</p>
+              <p class="cvEntry__technologies">
+                <strong>Tecnologías:</strong> {project.technologies.join(" · ")}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="cvSection" aria-labelledby="tecnologias-heading">
+      <h2 id="tecnologias-heading">Tecnologías</h2>
+      <dl class="cvSkills">
+        {
+          cv.skills.map((skill) => (
+            <div>
+              <dt>{skill.label}:</dt>
+              <dd>{skill.technologies.join(" · ")}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="cvSection cvSection--education" aria-labelledby="formacion-heading">
+      <h2 id="formacion-heading">Formación</h2>
+      <p>
+        <strong>{cv.education.degree}</strong>
+        <span aria-hidden="true"> · </span>
+        {cv.education.institution}
+        <span class="cvEducation__period">
+          <span aria-hidden="true"> | </span>
+          {cv.education.period}
+        </span>
+      </p>
+    </section>
+  </main>
+</CvLayout>
+
+<style is:global>
+  @page {
+    size: A4;
+    margin: 12mm 14mm 13mm;
+  }
+
+  :root {
+    --cv-primary: #008f77;
+    --cv-text: #202a28;
+    --cv-muted: #5b6865;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    color: var(--cv-text);
+    background: #ffffff;
+    font-size: 10.2pt;
+    line-height: 1.25;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .cvHeader h1,
+  .cvHeader p,
+  .cvHeader address,
+  .cvHeader__links,
+  .cvSection h2,
+  .cvSection h3,
+  .cvSection p,
+  .cvSection ul,
+  .cvSkills,
+  .cvSkills div,
+  .cvSkills dt,
+  .cvSkills dd {
+    margin: 0;
+  }
+
+  .cvHeader h1 {
+    font-size: 28pt;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .cvHeader__headline {
+    margin-top: 1.5mm;
+    color: var(--cv-primary);
+    font-size: 11.5pt;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .cvHeader__contact {
+    display: flex;
+    margin-top: 2mm;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 1.5mm;
+    color: var(--cv-muted);
+    font-size: 8.2pt;
+    font-style: normal;
+  }
+
+  .cvHeader__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 3mm;
+    color: var(--cv-muted);
+    font-size: 8pt;
+  }
+
+  .cvSection {
+    margin-top: 3.2mm;
+  }
+
+  .cvSection h2 {
+    margin-bottom: 1.3mm;
+    break-after: avoid;
+    color: var(--cv-primary);
+    font-size: 10.5pt;
+    line-height: 1.05;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+
+  .cvSection p {
+    font-size: 8.75pt;
+    line-height: 1.24;
+  }
+
+  .cvEntries {
+    display: grid;
+    gap: 1.8mm;
+  }
+
+  .cvEntry {
+    break-inside: avoid;
+  }
+
+  .cvEntry h3 {
+    font-size: 9.1pt;
+    line-height: 1.16;
+  }
+
+  .cvEntry__period {
+    font-weight: 400;
+  }
+
+  .cvEntry .cvEntry__role {
+    margin-top: 0.25mm;
+    color: var(--cv-muted);
+    font-size: 8.55pt;
+    font-weight: 700;
+    line-height: 1.16;
+  }
+
+  .cvEntry ul {
+    margin-top: 0.6mm;
+    padding-left: 4mm;
+  }
+
+  .cvEntry li {
+    padding-left: 0.5mm;
+    font-size: 8.5pt;
+    line-height: 1.2;
+  }
+
+  .cvEntry--project > p:not(:first-of-type) {
+    margin-top: 0.35mm;
+  }
+
+  .cvEntry .cvEntry__technologies {
+    color: var(--cv-muted);
+    font-size: 8.1pt;
+  }
+
+  .cvSkills {
+    display: grid;
+    gap: 0.45mm;
+  }
+
+  .cvSkills div {
+    display: flex;
+    gap: 1mm;
+    font-size: 8.7pt;
+    line-height: 1.18;
+  }
+
+  .cvSkills dt {
+    flex: none;
+    font-weight: 700;
+  }
+
+  .cvSection--education {
+    break-inside: avoid;
+  }
+
+  .cvEducation__period {
+    white-space: nowrap;
+  }
+</style>
