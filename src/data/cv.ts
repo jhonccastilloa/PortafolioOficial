@@ -43,8 +43,8 @@ interface CvData {
 }
 
 export const cv: CvData = {
-  name: "Jhon Castillo",
-  headline: "Desarrollador Mobile · React Native · TypeScript · Banca Digital",
+  name: "Jhon Carlos Castillo Atencio",
+  headline: "Desarrollador Frontend & Mobile · React · React Native · TypeScript",
   location: "Perú",
   phone: "+51 941 882 754",
   email: "jhoncarloscastilloatencio@gmail.com",
@@ -63,7 +63,7 @@ export const cv: CvData = {
     },
   ],
   profile:
-    "Ingeniero de Sistemas y desarrollador mobile especializado en React Native y TypeScript, con más de 3 años de experiencia en aplicaciones financieras para Latinoamérica. He participado en más de 14 productos bancarios, implementando onboarding, biometría, autenticación multifactor, operaciones transaccionales y seguridad mobile. También cuento con experiencia en React web, APIs REST y automatización de releases para Android/iOS con Fastlane y GitLab CI.",
+    "Ingeniero de Sistemas y desarrollador frontend y mobile especializado en el ecosistema React, con más de 3 años de experiencia en React, React Native y TypeScript. He participado en más de 14 productos bancarios para Latinoamérica, implementando interfaces web, onboarding, biometría, autenticación multifactor, operaciones transaccionales y seguridad mobile. También desarrollo APIs REST y automatizo releases Android/iOS con Fastlane y GitLab CI.",
   experience: [
     {
       company: "Bantotal",
@@ -79,12 +79,10 @@ export const cv: CvData = {
     {
       company: "Desarrollo freelance · Tiempo parcial",
       period: "Jul 2023 - Actualidad",
-      role: "Desarrollador Frontend & Full Stack · Plataforma de expedientes técnicos en producción",
+      role: "Desarrollador Frontend & Full Stack",
       bullets: [
-        "Desarrollo y mantengo para un cliente una plataforma empresarial que gestiona expedientes, tareas, planillas y documentos.",
-        "Implementé interfaces operativas, permisos, estado remoto y flujos de composición, foliación, impresión y exportación de PDF para centralizar la operación documental.",
-        "Construí el frontend con React, TypeScript y React Query, junto con APIs REST en Node.js/Express y PostgreSQL.",
-        "Despliego y mantengo la solución en infraestructura self-hosted y servidores VPS con Docker, Nginx, DNS, TLS, backups y monitoreo.",
+        "Desarrollo productos web para clientes con React, TypeScript y React Query, integrados con APIs REST en Node.js/Express y PostgreSQL.",
+        "Asumo despliegue y operación en infraestructura self-hosted y servidores VPS con Docker, Nginx, DNS, TLS, backups y monitoreo.",
       ],
     },
     {
@@ -115,6 +113,21 @@ export const cv: CvData = {
       ],
     },
     {
+      name: "Plataforma de gestión de expedientes técnicos",
+      period: "Jul 2023 - Actualidad",
+      descriptor: "Aplicación web empresarial en producción · Desarrollo frontend y full stack",
+      summary:
+        "Desarrollé con React, TypeScript y React Query flujos para gestionar expedientes, tareas y documentos, incluyendo permisos, composición, foliación, impresión y exportación de PDF.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "React Query",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+      ],
+    },
+    {
       name: "DebtMate",
       period: "2026 - Actualidad",
       descriptor: "Producto mobile personal · Diseño y desarrollo full stack · Uso personal",
@@ -134,16 +147,23 @@ export const cv: CvData = {
   ],
   skills: [
     {
-      label: "Mobile",
+      label: "Frontend",
       technologies: [
-        "React Native",
+        "React",
         "TypeScript",
-        "Android",
-        "iOS",
+        "JavaScript",
         "React Query",
         "Redux",
         "Zustand",
+        "HTML",
+        "CSS",
+        "Angular",
+        "Astro",
       ],
+    },
+    {
+      label: "Mobile",
+      technologies: ["React Native", "Android", "iOS"],
     },
     {
       label: "Seguridad mobile y CI/CD",
@@ -155,10 +175,6 @@ export const cv: CvData = {
         "Firebase App Distribution",
         "TestFlight",
       ],
-    },
-    {
-      label: "Frontend",
-      technologies: ["React", "JavaScript", "HTML", "CSS", "Angular", "Astro"],
     },
     {
       label: "Backend y APIs",

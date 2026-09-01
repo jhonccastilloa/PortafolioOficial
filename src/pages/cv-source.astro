@@ -2,9 +2,9 @@
 import { cv } from "../data/cv";
 import CvLayout from "../layouts/CvLayout.astro";
 
-const title = `CV - ${cv.name} - Desarrollador Mobile`;
+const title = `CV - ${cv.name} - Desarrollador Frontend y Mobile`;
 const description =
-  "Currículum profesional de Jhon Castillo, desarrollador Mobile especializado en React Native y TypeScript.";
+  "Currículum profesional de Jhon Carlos Castillo Atencio, desarrollador frontend y mobile especializado en React, React Native y TypeScript.";
 ---
 
 <CvLayout {title} {description}>
@@ -183,7 +183,7 @@ const description =
     display: flex;
     margin-top: 2mm;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0 1.5mm;
     color: var(--cv-muted);
     font-size: 8.2pt;
@@ -192,19 +192,20 @@ const description =
 
   .cvHeader__links {
     display: flex;
+    margin-top: 0.5mm;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0 3mm;
     color: var(--cv-muted);
     font-size: 8pt;
   }
 
   .cvSection {
-    margin-top: 3.2mm;
+    margin-top: 3.7mm;
   }
 
   .cvSection h2 {
-    margin-bottom: 1.3mm;
+    margin-bottom: 1.5mm;
     break-after: avoid;
     color: var(--cv-primary);
     font-size: 10.5pt;
@@ -214,13 +215,13 @@ const description =
   }
 
   .cvSection p {
-    font-size: 8.75pt;
-    line-height: 1.24;
+    font-size: 9pt;
+    line-height: 1.26;
   }
 
   .cvEntries {
     display: grid;
-    gap: 1.8mm;
+    gap: 2.4mm;
   }
 
   .cvEntry {
@@ -228,7 +229,7 @@ const description =
   }
 
   .cvEntry h3 {
-    font-size: 9.1pt;
+    font-size: 9.3pt;
     line-height: 1.16;
   }
 
@@ -239,41 +240,41 @@ const description =
   .cvEntry .cvEntry__role {
     margin-top: 0.25mm;
     color: var(--cv-muted);
-    font-size: 8.55pt;
+    font-size: 8.8pt;
     font-weight: 700;
-    line-height: 1.16;
+    line-height: 1.18;
   }
 
   .cvEntry ul {
-    margin-top: 0.6mm;
-    padding-left: 4mm;
+    margin-top: 0.9mm;
+    padding-left: 4.5mm;
   }
 
   .cvEntry li {
     padding-left: 0.5mm;
-    font-size: 8.5pt;
-    line-height: 1.2;
+    font-size: 8.8pt;
+    line-height: 1.24;
   }
 
   .cvEntry--project > p:not(:first-of-type) {
-    margin-top: 0.35mm;
+    margin-top: 0.65mm;
   }
 
   .cvEntry .cvEntry__technologies {
     color: var(--cv-muted);
-    font-size: 8.1pt;
+    font-size: 8.35pt;
   }
 
   .cvSkills {
     display: grid;
-    gap: 0.45mm;
+    gap: 0.7mm;
   }
 
   .cvSkills div {
     display: flex;
     gap: 1mm;
-    font-size: 8.7pt;
-    line-height: 1.18;
+    font-size: 8.9pt;
+    line-height: 1.22;
   }
 
   .cvSkills dt {
