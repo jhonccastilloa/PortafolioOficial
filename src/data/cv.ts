@@ -54,8 +54,8 @@ export const cv: CvData = {
       href: "https://www.linkedin.com/in/jccastilloa",
     },
     {
-      label: "jcastilloa.dhyrium.website",
-      href: "https://jcastilloa.dhyrium.website",
+      label: "jcastilloa.netlify.app",
+      href: "https://jcastilloa.netlify.app",
     },
     {
       label: "github.com/jhonccastilloa",

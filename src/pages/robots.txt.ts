@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = () => {
-  const siteUrl = 'https://jcastilloa.dhyrium.website';
+  const siteUrl = 'https://jcastilloa.netlify.app';
   return new Response(
     `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap-index.xml`,
     {

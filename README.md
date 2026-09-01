@@ -2,7 +2,7 @@
 
 Portafolio profesional de **Jhon Castillo**, Frontend & Mobile Developer especializado en React, React Native y TypeScript. El sitio presenta experiencia profesional, casos de estudio, capacidades técnicas y medios de contacto.
 
-**Sitio publicado:** [jcastilloa.dhyrium.website](https://jcastilloa.dhyrium.website)
+**Sitio publicado:** [jcastilloa.netlify.app](https://jcastilloa.netlify.app)
 
 ## Características
 

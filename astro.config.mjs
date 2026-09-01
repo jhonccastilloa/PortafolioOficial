@@ -4,7 +4,7 @@ import cvPdf, { excludeCvSource } from './integrations/cv-pdf.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jcastilloa.dhyrium.website',
+  site: 'https://jcastilloa.netlify.app',
   integrations: [
     sitemap({ filter: excludeCvSource }),
     cvPdf(),
